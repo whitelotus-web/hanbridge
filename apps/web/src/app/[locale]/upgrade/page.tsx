@@ -1,5 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
-import Placeholder from "@/components/Placeholder";
+import InnerHeader from "@/components/InnerHeader";
+import Footer from "@/components/Footer";
+import UpgradePlans from "@/components/billing/UpgradePlans";
 
 export default function UpgradePage({
   params: { locale }
@@ -8,9 +10,12 @@ export default function UpgradePage({
 }) {
   setRequestLocale(locale);
   return (
-    <Placeholder
-      title="VIP plans"
-      description="Unlock all levels, mock tests and AI features. Pricing & checkout (PayPal + PayOS) arrive in Phase 5."
-    />
+    <>
+      <InnerHeader />
+      <main className="container-page max-w-4xl py-12">
+        <UpgradePlans />
+      </main>
+      <Footer />
+    </>
   );
 }

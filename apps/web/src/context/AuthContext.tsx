@@ -13,6 +13,7 @@ import {
   ACCESS_KEY,
   REFRESH_KEY,
   clearTokens,
+  getAccessToken,
   setTokens
 } from "@/lib/tokens";
 
@@ -20,6 +21,7 @@ interface AuthContextValue {
   user: AuthUser | null;
   loading: boolean;
   setSession: (result: AuthResult) => void;
+  refreshUser: () => Promise<void>;
   logout: () => void;
 }
 
@@ -32,6 +34,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const setSession = useCallback((result: AuthResult) => {
     setTokens(result.access_token, result.refresh_token);
     setUser(result.user);
+  }, []);
+
+  const refreshUser = useCallback(async () => {
+    const token = getAccessToken();
+    if (!token) return;
+    const me = await authApi.me(token);
+    setUser(me);
   }, []);
 
   const logout = useCallback(() => {
@@ -85,7 +94,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loading, setSession, logout }}>
+    <AuthContext.Provider
+      value={{ user, loading, setSession, refreshUser, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

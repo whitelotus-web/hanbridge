@@ -91,6 +91,7 @@ export interface SectionSummary {
   title: string;
   question_type: string;
   order: number;
+  is_free: boolean;
 }
 
 export interface Skill {
@@ -156,6 +157,35 @@ export interface MockTestSummary {
   duration_sec: number;
   level_code: string;
   question_count: number;
+  is_free: boolean;
+}
+
+export interface Plan {
+  id: number;
+  name: string;
+  interval: string;
+  duration_days: number | null;
+  price: string;
+  currency: string;
+}
+
+export interface CheckoutResult {
+  order_id: number;
+  gateway: string;
+  amount: string;
+  currency: string;
+  checkout_url: string;
+  qr_data: string | null;
+}
+
+export interface Subscription {
+  is_vip: boolean;
+  vip_until: string | null;
+}
+
+export function userIsVip(user: AuthUser | null): boolean {
+  if (!user?.vip_until) return false;
+  return new Date(user.vip_until).getTime() > Date.now();
 }
 
 export interface MockQuestion {
@@ -225,6 +255,25 @@ export const mockApi = {
 
 export const dashboardApi = {
   stats: (token: string) => request<Stats>("/me/stats", { token })
+};
+
+export const billingApi = {
+  plans: () => request<Plan[]>("/plans"),
+  gateways: () => request<string[]>("/billing/gateways"),
+  checkout: (planId: number, gateway: string, token: string) =>
+    request<CheckoutResult>("/billing/checkout", {
+      method: "POST",
+      body: JSON.stringify({ plan_id: planId, gateway }),
+      token
+    }),
+  confirm: (orderId: number, token: string) =>
+    request<{ id: number; status: string }>("/billing/confirm", {
+      method: "POST",
+      body: JSON.stringify({ order_id: orderId }),
+      token
+    }),
+  subscription: (token: string) =>
+    request<Subscription>("/me/subscription", { token })
 };
 
 export const practiceApi = {

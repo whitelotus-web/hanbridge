@@ -221,6 +221,7 @@ def seed() -> None:
             title="Fill in the blank",
             question_type=QuestionType.fill_blank,
             order=2,
+            is_free=False,
         )
         db.add_all([reading_mcq, reading_fill])
         db.add_all(_sample_questions(reading_mcq))
@@ -231,6 +232,7 @@ def seed() -> None:
             title="Write a sentence",
             question_type=QuestionType.writing_task,
             order=1,
+            is_free=False,
         )
         db.add(writing_section)
         db.add_all(_open_questions(writing_section, WRITING_TASKS))
@@ -240,6 +242,7 @@ def seed() -> None:
             title="Speak aloud",
             question_type=QuestionType.speaking_task,
             order=1,
+            is_free=False,
         )
         db.add(speaking_section)
         db.add_all(_open_questions(speaking_section, SPEAKING_TASKS))
@@ -265,6 +268,7 @@ def seed() -> None:
             title="Fill in the blank",
             question_type=QuestionType.fill_blank,
             order=1,
+            is_free=False,
         )
         db.add_all([hsk2_listening_section, hsk2_reading_section])
         db.add_all(_sample_questions(hsk2_listening_section))

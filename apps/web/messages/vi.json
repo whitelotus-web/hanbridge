@@ -163,5 +163,20 @@
     "noProgress": "Hãy bắt đầu luyện tập để xem tiến độ tại đây.",
     "recentMocks": "Đề thi thử gần đây",
     "noMocks": "Làm một đề thi thử để theo dõi điểm số."
+  },
+  "billing": {
+    "title": "Nâng cấp VIP",
+    "subtitle": "Mở khoá toàn bộ cấp độ, đề thi thử và tính năng AI.",
+    "payVia": "Thanh toán qua",
+    "choose": "Chọn gói",
+    "processing": "Đang xử lý…",
+    "forDays": "{days} ngày sử dụng",
+    "lifetime": "Sử dụng trọn đời",
+    "success": "Bạn đã là VIP. Tận hưởng toàn bộ nội dung!",
+    "alreadyVip": "Bạn đã có gói VIP đang hoạt động.",
+    "error": "Không thể hoàn tất thanh toán. Vui lòng thử lại.",
+    "gateTitle": "Nội dung này chỉ dành cho VIP",
+    "gateBody": "Nâng cấp để mở khoá phần này cùng tất cả bài học, đề thi thử và tính năng AI cao cấp.",
+    "gateCta": "Xem các gói VIP"
   }
 }

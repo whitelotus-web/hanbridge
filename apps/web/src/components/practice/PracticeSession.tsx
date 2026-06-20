@@ -4,12 +4,14 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import {
+  ApiError,
   contentApi,
   practiceApi,
   type GradeResult,
   type SectionQuestions
 } from "@/lib/api";
 import { getAccessToken } from "@/lib/tokens";
+import VipGate from "@/components/billing/VipGate";
 
 const CHOICE_TYPES = [
   "true_false",
@@ -37,6 +39,7 @@ export default function PracticeSession({ sectionId }: { sectionId: number }) {
   const [textAnswers, setTextAnswers] = useState<Record<number, string>>({});
   const [result, setResult] = useState<GradeResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [locked, setLocked] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -45,8 +48,10 @@ export default function PracticeSession({ sectionId }: { sectionId: number }) {
       .then((data) => {
         if (!cancelled) setSection(data);
       })
-      .catch(() => {
-        if (!cancelled) setLoadError(t("loadError"));
+      .catch((err) => {
+        if (cancelled) return;
+        if (err instanceof ApiError && err.status === 402) setLocked(true);
+        else setLoadError(t("loadError"));
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -66,6 +71,9 @@ export default function PracticeSession({ sectionId }: { sectionId: number }) {
 
   if (loading) {
     return <p className="py-10 text-center text-slate-400">{t("loading")}</p>;
+  }
+  if (locked) {
+    return <VipGate />;
   }
   if (loadError || !section) {
     return <p className="py-10 text-center text-red-500">{loadError}</p>;

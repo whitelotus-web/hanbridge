@@ -2,6 +2,7 @@ from fastapi import APIRouter
 
 from app.api.v1.endpoints import (
     auth,
+    billing,
     dashboard,
     health,
     levels,
@@ -16,3 +17,4 @@ api_router.include_router(levels.router)
 api_router.include_router(practice.router)
 api_router.include_router(mock.router)
 api_router.include_router(dashboard.router)
+api_router.include_router(billing.router)

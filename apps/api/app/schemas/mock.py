@@ -17,6 +17,7 @@ class MockTestSummary(BaseModel):
     duration_sec: int
     level_code: str
     question_count: int
+    is_free: bool = True
 
 
 class MockQuestionOut(BaseModel):

@@ -163,5 +163,20 @@
     "noProgress": "Start practicing to see your progress here.",
     "recentMocks": "Recent mock tests",
     "noMocks": "Take a mock test to track your scores."
+  },
+  "billing": {
+    "title": "Upgrade to VIP",
+    "subtitle": "Unlock every level, mock test and AI feature.",
+    "payVia": "Pay via",
+    "choose": "Choose plan",
+    "processing": "Processing…",
+    "forDays": "{days} days of access",
+    "lifetime": "Lifetime access",
+    "success": "You are now VIP. Enjoy full access!",
+    "alreadyVip": "You already have an active VIP plan.",
+    "error": "Payment could not be completed. Please try again.",
+    "gateTitle": "This content is VIP-only",
+    "gateBody": "Upgrade to unlock this section and every other premium lesson, mock test and AI feature.",
+    "gateCta": "View VIP plans"
   }
 }

@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import JSON, DateTime, ForeignKey, Integer, String
+from sqlalchemy import JSON, Boolean, DateTime, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base, TimestampMixin
@@ -21,6 +21,8 @@ class MockTest(Base, TimestampMixin):
     duration_sec: Mapped[int] = mapped_column(Integer, default=0)
     # Describes section layout & question references for assembling the exam.
     structure: Mapped[dict] = mapped_column(JSON, default=dict)
+    # Free mock tests are open to everyone; non-free require an active VIP plan.
+    is_free: Mapped[bool] = mapped_column(Boolean, default=True)
 
     level: Mapped[Level] = relationship()
     attempts: Mapped[list[MockAttempt]] = relationship(

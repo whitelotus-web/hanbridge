@@ -15,13 +15,18 @@ from app.schemas.practice import (
     ProgressOut,
     SectionQuestionsOut,
 )
+from app.services import billing as billing_service
 from app.services import practice as practice_service
 
 router = APIRouter(tags=["practice"])
 
 
 @router.get("/sections/{section_id}", response_model=SectionQuestionsOut)
-def get_section(section_id: int, db: Session = Depends(get_db)) -> SectionQuestionsOut:
+def get_section(
+    section_id: int,
+    db: Session = Depends(get_db),
+    user: User | None = Depends(get_current_user_optional),
+) -> SectionQuestionsOut:
     section = db.scalars(
         select(Section)
         .where(Section.id == section_id)
@@ -32,6 +37,9 @@ def get_section(section_id: int, db: Session = Depends(get_db)) -> SectionQuesti
     ).first()
     if section is None:
         raise HTTPException(status_code=404, detail="Section not found")
+
+    if not section.is_free and (user is None or not billing_service.is_vip(user)):
+        raise HTTPException(status_code=402, detail="vip_required")
 
     skill = section.skill
     return SectionQuestionsOut(

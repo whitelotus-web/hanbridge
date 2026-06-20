@@ -27,6 +27,14 @@ class Settings(BaseSettings):
 
     GEMINI_API_KEY: str = ""
 
+    # Where users return after payment / mock checkout lives.
+    FRONTEND_URL: str = "http://localhost:3000"
+    # Payment gateway credentials (empty => gateways run in dev/mock mode).
+    PAYPAL_CLIENT_ID: str = ""
+    PAYPAL_SECRET: str = ""
+    PAYOS_CLIENT_ID: str = ""
+    PAYOS_API_KEY: str = ""
+
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
     @classmethod
     def _split_origins(cls, v: object) -> object:

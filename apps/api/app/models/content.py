@@ -49,6 +49,8 @@ class Section(Base, TimestampMixin):
         Enum(QuestionType, name="question_type")
     )
     order: Mapped[int] = mapped_column(Integer, default=0)
+    # Free sections are open to everyone; non-free require an active VIP plan.
+    is_free: Mapped[bool] = mapped_column(Boolean, default=True)
 
     skill: Mapped[Skill] = relationship(back_populates="sections")
     questions: Mapped[list[Question]] = relationship(

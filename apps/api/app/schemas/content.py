@@ -30,6 +30,7 @@ class SectionOut(BaseModel):
     title: str
     question_type: QuestionType
     order: int
+    is_free: bool = True
 
 
 class SkillOut(BaseModel):

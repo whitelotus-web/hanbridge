@@ -70,8 +70,13 @@ export default function LevelCatalog({ code }: { code: string }) {
                     href={`/practice/${section.id}`}
                     className="flex items-center justify-between rounded-xl border border-slate-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-md"
                   >
-                    <span className="font-medium text-slate-800">
+                    <span className="flex items-center gap-2 font-medium text-slate-800">
                       {section.title}
+                      {!section.is_free && (
+                        <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
+                          VIP
+                        </span>
+                      )}
                     </span>
                     <span className="text-sm font-semibold text-brand-600">
                       {t("practice")} →
@@ -97,8 +102,13 @@ export default function LevelCatalog({ code }: { code: string }) {
                   className="flex items-center justify-between rounded-xl border border-brand-100 bg-brand-50/40 p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
                 >
                   <span>
-                    <span className="block font-medium text-slate-800">
+                    <span className="flex items-center gap-2 font-medium text-slate-800">
                       {mock.title}
+                      {!mock.is_free && (
+                        <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
+                          VIP
+                        </span>
+                      )}
                     </span>
                     <span className="text-xs text-slate-500">
                       {mock.question_count} {t("questions")} ·{" "}

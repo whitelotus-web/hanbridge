@@ -14,9 +14,17 @@ from app.schemas.mock import (
     MockTestDetail,
     MockTestSummary,
 )
+from app.services import billing as billing_service
 from app.services import mock as mock_service
 
 router = APIRouter(tags=["mock"])
+
+
+def _require_access(mock_test_is_free: bool, user: User | None) -> None:
+    if not mock_test_is_free and (
+        user is None or not billing_service.is_vip(user)
+    ):
+        raise HTTPException(status_code=402, detail="vip_required")
 
 
 @router.get("/levels/{level_code}/mock-tests", response_model=list[MockTestSummary])
@@ -31,6 +39,7 @@ def list_mock_tests(
             duration_sec=t.duration_sec,
             level_code=level_code,
             question_count=len(mock_service.question_ids(t)),
+            is_free=t.is_free,
         )
         for t in tests
     ]
@@ -38,11 +47,14 @@ def list_mock_tests(
 
 @router.get("/mock-tests/{mock_test_id}", response_model=MockTestDetail)
 def get_mock_test(
-    mock_test_id: int, db: Session = Depends(get_db)
+    mock_test_id: int,
+    db: Session = Depends(get_db),
+    user: User | None = Depends(get_current_user_optional),
 ) -> MockTestDetail:
     mock_test = mock_service.get_mock_test(db, mock_test_id)
     if mock_test is None:
         raise HTTPException(status_code=404, detail="Mock test not found")
+    _require_access(mock_test.is_free, user)
     questions = mock_service.load_questions(
         db, mock_service.question_ids(mock_test)
     )
@@ -76,6 +88,7 @@ def submit_mock_test(
     mock_test = mock_service.get_mock_test(db, mock_test_id)
     if mock_test is None:
         raise HTTPException(status_code=404, detail="Mock test not found")
+    _require_access(mock_test.is_free, user)
     if not payload.answers:
         raise HTTPException(status_code=422, detail="No answers submitted")
     return mock_service.grade_mock(

@@ -4,12 +4,14 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import {
+  ApiError,
   mockApi,
   type AnswerInput,
   type MockResult,
   type MockTestDetail
 } from "@/lib/api";
 import { getAccessToken } from "@/lib/tokens";
+import VipGate from "@/components/billing/VipGate";
 
 const CHOICE_TYPES = [
   "true_false",
@@ -35,6 +37,7 @@ export default function MockRunner({ mockId }: { mockId: number }) {
   const [result, setResult] = useState<MockResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [remaining, setRemaining] = useState<number | null>(null);
+  const [locked, setLocked] = useState(false);
   const startRef = useRef<number>(Date.now());
 
   useEffect(() => {
@@ -47,8 +50,10 @@ export default function MockRunner({ mockId }: { mockId: number }) {
         setRemaining(data.duration_sec);
         startRef.current = Date.now();
       })
-      .catch(() => {
-        if (!cancelled) setLoadError(t("loadError"));
+      .catch((err) => {
+        if (cancelled) return;
+        if (err instanceof ApiError && err.status === 402) setLocked(true);
+        else setLoadError(t("loadError"));
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -97,6 +102,9 @@ export default function MockRunner({ mockId }: { mockId: number }) {
 
   if (loading) {
     return <p className="py-10 text-center text-slate-400">{t("loading")}</p>;
+  }
+  if (locked) {
+    return <VipGate />;
   }
   if (loadError || !test) {
     return <p className="py-10 text-center text-red-500">{loadError}</p>;

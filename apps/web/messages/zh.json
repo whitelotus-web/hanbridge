@@ -163,5 +163,20 @@
     "noProgress": "开始练习后即可在此查看进度。",
     "recentMocks": "最近的模拟考试",
     "noMocks": "完成一次模拟考试以记录成绩。"
+  },
+  "billing": {
+    "title": "升级 VIP",
+    "subtitle": "解锁所有级别、模拟考试和 AI 功能。",
+    "payVia": "支付方式",
+    "choose": "选择套餐",
+    "processing": "处理中…",
+    "forDays": "{days} 天使用权",
+    "lifetime": "永久使用权",
+    "success": "您已成为 VIP，尽享全部内容！",
+    "alreadyVip": "您已拥有有效的 VIP 套餐。",
+    "error": "支付未能完成，请重试。",
+    "gateTitle": "此内容仅限 VIP",
+    "gateBody": "升级即可解锁此部分以及所有高级课程、模拟考试和 AI 功能。",
+    "gateCta": "查看 VIP 套餐"
   }
 }
