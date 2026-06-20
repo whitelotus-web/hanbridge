@@ -1,11 +1,15 @@
 from __future__ import annotations
 
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from sqlalchemy import JSON, DateTime, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base, TimestampMixin
+
+if TYPE_CHECKING:
+    from app.models.content import Level
 
 
 class MockTest(Base, TimestampMixin):
@@ -18,6 +22,7 @@ class MockTest(Base, TimestampMixin):
     # Describes section layout & question references for assembling the exam.
     structure: Mapped[dict] = mapped_column(JSON, default=dict)
 
+    level: Mapped[Level] = relationship()
     attempts: Mapped[list[MockAttempt]] = relationship(
         back_populates="mock_test", cascade="all, delete-orphan"
     )

@@ -6,6 +6,7 @@
     "login": "登录",
     "register": "注册",
     "logout": "退出登录",
+    "dashboard": "我的面板",
     "language": "语言"
   },
   "auth": {
@@ -137,6 +138,30 @@
     "backToLevel": "返回级别",
     "retry": "再试一次",
     "grading": "评分中…",
-    "submit": "提交答案"
+    "submit": "提交答案",
+    "mockTests": "模拟考试",
+    "questions": "题",
+    "minutes": "分钟",
+    "startTest": "开始考试",
+    "passed": "通过",
+    "notPassed": "未通过",
+    "correctCount": "正确",
+    "listening": "听力",
+    "reading": "阅读",
+    "writing": "书写",
+    "speaking": "口语",
+    "test": "考试"
+  },
+  "dashboard": {
+    "loading": "加载中…",
+    "title": "我的面板",
+    "greeting": "欢迎回来，{name}",
+    "answered": "已答题数",
+    "correct": "答对题数",
+    "accuracy": "正确率",
+    "progress": "各部分进度",
+    "noProgress": "开始练习后即可在此查看进度。",
+    "recentMocks": "最近的模拟考试",
+    "noMocks": "完成一次模拟考试以记录成绩。"
   }
 }

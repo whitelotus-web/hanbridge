@@ -6,6 +6,7 @@
     "login": "Đăng nhập",
     "register": "Đăng ký",
     "logout": "Đăng xuất",
+    "dashboard": "Bảng điều khiển",
     "language": "Ngôn ngữ"
   },
   "auth": {
@@ -137,6 +138,30 @@
     "backToLevel": "Quay lại cấp độ",
     "retry": "Thử lại",
     "grading": "Đang chấm…",
-    "submit": "Nộp bài"
+    "submit": "Nộp bài",
+    "mockTests": "Đề thi thử",
+    "questions": "câu",
+    "minutes": "phút",
+    "startTest": "Bắt đầu thi",
+    "passed": "Đạt",
+    "notPassed": "Chưa đạt",
+    "correctCount": "câu đúng",
+    "listening": "Nghe",
+    "reading": "Đọc",
+    "writing": "Viết",
+    "speaking": "Nói",
+    "test": "Bài thi"
+  },
+  "dashboard": {
+    "loading": "Đang tải…",
+    "title": "Bảng điều khiển",
+    "greeting": "Chào mừng trở lại, {name}",
+    "answered": "Số câu đã làm",
+    "correct": "Số câu đúng",
+    "accuracy": "Độ chính xác",
+    "progress": "Tiến độ theo phần",
+    "noProgress": "Hãy bắt đầu luyện tập để xem tiến độ tại đây.",
+    "recentMocks": "Đề thi thử gần đây",
+    "noMocks": "Làm một đề thi thử để theo dõi điểm số."
   }
 }

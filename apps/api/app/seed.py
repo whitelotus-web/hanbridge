@@ -17,6 +17,7 @@ from app.models.article import Article
 from app.models.billing import Plan
 from app.models.content import Level, Option, Question, Section, Skill
 from app.models.enums import PlanInterval, QuestionType, SkillType
+from app.models.mock import MockTest
 
 # HSK 1-6 plus the advanced 7-9 band.
 LEVELS: list[tuple[str, str, int]] = [
@@ -268,6 +269,31 @@ def seed() -> None:
         db.add_all([hsk2_listening_section, hsk2_reading_section])
         db.add_all(_sample_questions(hsk2_listening_section))
         db.add_all(_fill_blank_questions(hsk2_reading_section))
+
+        # Assemble a timed HSK1 mock test from auto-gradable questions.
+        db.flush()
+        gradable = {
+            QuestionType.true_false,
+            QuestionType.multiple_choice,
+            QuestionType.fill_blank,
+        }
+        hsk1_question_ids = [
+            q.id
+            for q in db.scalars(
+                select(Question)
+                .join(Question.section)
+                .join(Section.skill)
+                .where(Skill.level_id == hsk1.id, Section.question_type.in_(gradable))
+            ).all()
+        ]
+        db.add(
+            MockTest(
+                level_id=hsk1.id,
+                title="[SAMPLE] HSK1 Practice Mock Test",
+                duration_sec=600,
+                structure={"question_ids": hsk1_question_ids},
+            )
+        )
 
         # Sample VIP plans (prices are placeholders).
         db.add_all(

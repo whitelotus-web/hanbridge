@@ -35,6 +35,9 @@ export default function AuthNav({
     const name = user.display_name || user.email || user.phone || "";
     return (
       <div className="flex items-center gap-4">
+        <Link href="/dashboard" className={loginClass} onClick={onNavigate}>
+          {t("dashboard")}
+        </Link>
         <span className={nameClass}>{name}</span>
         <button
           type="button"

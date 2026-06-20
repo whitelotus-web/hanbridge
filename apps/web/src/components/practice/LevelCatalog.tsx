@@ -3,20 +3,32 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { ApiError, contentApi, type LevelDetail } from "@/lib/api";
+import {
+  ApiError,
+  contentApi,
+  mockApi,
+  type LevelDetail,
+  type MockTestSummary
+} from "@/lib/api";
 
 export default function LevelCatalog({ code }: { code: string }) {
   const t = useTranslations("practice");
   const [level, setLevel] = useState<LevelDetail | null>(null);
+  const [mocks, setMocks] = useState<MockTestSummary[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
-    contentApi
-      .level(code)
-      .then((data) => {
-        if (!cancelled) setLevel(data);
+    Promise.all([
+      contentApi.level(code),
+      mockApi.list(code).catch(() => [] as MockTestSummary[])
+    ])
+      .then(([data, mockList]) => {
+        if (!cancelled) {
+          setLevel(data);
+          setMocks(mockList);
+        }
       })
       .catch((err) => {
         if (!cancelled)
@@ -71,6 +83,37 @@ export default function LevelCatalog({ code }: { code: string }) {
           )}
         </section>
       ))}
+
+      {mocks.length > 0 && (
+        <section>
+          <h2 className="mb-4 text-xl font-bold text-slate-900">
+            {t("mockTests")}
+          </h2>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {mocks.map((mock) => (
+              <li key={mock.id}>
+                <Link
+                  href={`/mock/${mock.id}`}
+                  className="flex items-center justify-between rounded-xl border border-brand-100 bg-brand-50/40 p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+                >
+                  <span>
+                    <span className="block font-medium text-slate-800">
+                      {mock.title}
+                    </span>
+                    <span className="text-xs text-slate-500">
+                      {mock.question_count} {t("questions")} ·{" "}
+                      {Math.round(mock.duration_sec / 60)} {t("minutes")}
+                    </span>
+                  </span>
+                  <span className="text-sm font-semibold text-brand-600">
+                    {t("startTest")} →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   );
 }

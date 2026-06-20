@@ -6,6 +6,7 @@
     "login": "Login",
     "register": "Register",
     "logout": "Log out",
+    "dashboard": "Dashboard",
     "language": "Language"
   },
   "auth": {
@@ -137,6 +138,30 @@
     "backToLevel": "Back to level",
     "retry": "Try again",
     "grading": "Grading…",
-    "submit": "Submit answers"
+    "submit": "Submit answers",
+    "mockTests": "Mock tests",
+    "questions": "questions",
+    "minutes": "min",
+    "startTest": "Start test",
+    "passed": "Passed",
+    "notPassed": "Not passed",
+    "correctCount": "correct",
+    "listening": "Listening",
+    "reading": "Reading",
+    "writing": "Writing",
+    "speaking": "Speaking",
+    "test": "Test"
+  },
+  "dashboard": {
+    "loading": "Loading…",
+    "title": "Dashboard",
+    "greeting": "Welcome back, {name}",
+    "answered": "Questions answered",
+    "correct": "Correct answers",
+    "accuracy": "Accuracy",
+    "progress": "Progress by section",
+    "noProgress": "Start practicing to see your progress here.",
+    "recentMocks": "Recent mock tests",
+    "noMocks": "Take a mock test to track your scores."
   }
 }

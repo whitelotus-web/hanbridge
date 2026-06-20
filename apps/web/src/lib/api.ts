@@ -150,10 +150,81 @@ export interface AnswerInput {
   text_answer?: string | null;
 }
 
+export interface MockTestSummary {
+  id: number;
+  title: string;
+  duration_sec: number;
+  level_code: string;
+  question_count: number;
+}
+
+export interface MockQuestion {
+  id: number;
+  stem: string;
+  audio_url: string | null;
+  image_url: string | null;
+  question_type: string;
+  skill_type: string;
+  options: Option[];
+}
+
+export interface MockTestDetail {
+  id: number;
+  title: string;
+  duration_sec: number;
+  level_code: string;
+  questions: MockQuestion[];
+}
+
+export interface MockResult {
+  attempt_id: number | null;
+  score: number;
+  listening_score: number;
+  reading_score: number;
+  writing_score: number;
+  speaking_score: number;
+  total_questions: number;
+  correct: number;
+  passed: boolean;
+  results: QuestionResult[];
+}
+
+export interface MockAttemptRow {
+  id: number;
+  mock_test_id: number;
+  title: string;
+  score: number;
+  finished_at: string | null;
+}
+
+export interface Stats {
+  total_answered: number;
+  total_correct: number;
+  accuracy: number;
+  sections: ProgressRow[];
+  recent_mocks: MockAttemptRow[];
+}
+
 export const contentApi = {
   levels: () => request<LevelSummary[]>("/levels"),
   level: (code: string) => request<LevelDetail>(`/levels/${code}`),
   section: (id: number) => request<SectionQuestions>(`/sections/${id}`)
+};
+
+export const mockApi = {
+  list: (levelCode: string) =>
+    request<MockTestSummary[]>(`/levels/${levelCode}/mock-tests`),
+  get: (id: number) => request<MockTestDetail>(`/mock-tests/${id}`),
+  submit: (id: number, answers: AnswerInput[], durationSec: number, token?: string) =>
+    request<MockResult>(`/mock-tests/${id}/submit`, {
+      method: "POST",
+      body: JSON.stringify({ answers, duration_sec: durationSec }),
+      token
+    })
+};
+
+export const dashboardApi = {
+  stats: (token: string) => request<Stats>("/me/stats", { token })
 };
 
 export const practiceApi = {
