@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "corporate": "企业服务",
+    "upgrade": "升级 VIP",
+    "about": "关于我们",
+    "login": "登录",
+    "register": "注册",
+    "language": "语言"
+  },
+  "hero": {
+    "title": "更智能的 HSK 学习平台",
+    "subtitle": "大数据 + 人工智能",
+    "cta": "开始学习"
+  },
+  "learn": {
+    "title": "随时随地，想学就学",
+    "courseTitle": "课程设计",
+    "courseDesc": "由多年教学经验的老师设计，结合上亿条学习数据。",
+    "aiTitle": "AI 智能驱动",
+    "aiDesc": "根据你的节奏个性化练习，学习高效又轻松。"
+  },
+  "specialties": {
+    "title": "我们的特色",
+    "testsTitle": "真题与模拟考试",
+    "testsDesc": "模拟考试，带你进入真实考场。",
+    "vocabTitle": "词汇练习",
+    "vocabDesc": "重点词汇、高频词汇。",
+    "lrwTitle": "听力、阅读、书写",
+    "lrwDesc": "针对每种题型专项训练，逐一攻克。"
+  },
+  "tutoring": {
+    "title": "HSK 一对一辅导",
+    "point1": "HSK 考点总结",
+    "point2": "HSK 学习技巧讲解",
+    "point3": "历年真题解析",
+    "cta": "下载 App →"
+  },
+  "levels": {
+    "title": "选择你的级别",
+    "subtitle": "从入门 HSK 1 到高级 HSK 7–9。",
+    "level": "HSK {n} 级",
+    "advanced": "HSK 7–9（高级）",
+    "start": "开始"
+  },
+  "testimonials": {
+    "title": "数百万学习者的选择",
+    "level": "HSK 等级",
+    "score": "分数"
+  },
+  "corporate": {
+    "title": "众多知名企业的信赖之选",
+    "desc": "用 AI 技术提供更智能的中文学习方式；我们为多家世界知名跨国企业提供语言服务。",
+    "cta": "了解更多"
+  },
+  "news": {
+    "title": "新闻动态"
+  },
+  "footer": {
+    "aboutHsk": "关于 HSK",
+    "aboutTest": "考试介绍",
+    "testPlan": "考试安排",
+    "testRegulation": "考试规则",
+    "mockTests": "模拟考试",
+    "product": "HanBridge",
+    "aboutUs": "关于我们",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "refund": "退款政策",
+    "contact": "联系我们",
+    "download": "下载 App",
+    "rights": "© {year} HanBridge 版权所有。",
+    "tagline": "连接世界与中文。"
+  },
+  "common": {
+    "sampleBadge": "示例数据"
+  }
+}

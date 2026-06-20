@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "corporate": "Dịch vụ doanh nghiệp",
+    "upgrade": "Nâng cấp VIP",
+    "about": "Giới thiệu",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "language": "Ngôn ngữ"
+  },
+  "hero": {
+    "title": "NỀN TẢNG HSK THÔNG MINH HƠN",
+    "subtitle": "Dữ liệu lớn + Trí tuệ nhân tạo",
+    "cta": "Bắt đầu học"
+  },
+  "learn": {
+    "title": "Học mọi lúc, mọi nơi bạn muốn",
+    "courseTitle": "Thiết kế khóa học",
+    "courseDesc": "Được thiết kế bởi giáo viên nhiều năm kinh nghiệm, kết hợp 100 triệu dữ liệu học tập.",
+    "aiTitle": "Ứng dụng AI",
+    "aiDesc": "Luyện tập cá nhân hóa theo tốc độ của bạn, học hiệu quả và tiết kiệm thời gian."
+  },
+  "specialties": {
+    "title": "Thế mạnh của chúng tôi",
+    "testsTitle": "Đề thật & thi thử",
+    "testsDesc": "Bài thi thử mô phỏng đưa bạn vào phòng thi thật.",
+    "vocabTitle": "Luyện từ vựng",
+    "vocabDesc": "Từ vựng trọng tâm, từ tần suất cao.",
+    "lrwTitle": "Nghe, Đọc, Viết",
+    "lrwDesc": "Luyện chuyên sâu từng dạng câu hỏi — chinh phục từng phần."
+  },
+  "tutoring": {
+    "title": "Gia sư HSK 1 kèm 1",
+    "point1": "Tổng hợp trọng điểm HSK",
+    "point2": "Giải thích kỹ năng học HSK",
+    "point3": "Phân tích đề thi các năm trước",
+    "cta": "Tải App →"
+  },
+  "levels": {
+    "title": "Chọn trình độ của bạn",
+    "subtitle": "Từ HSK 1 cơ bản đến band HSK 7–9 nâng cao.",
+    "level": "HSK Cấp {n}",
+    "advanced": "HSK 7–9 (Nâng cao)",
+    "start": "Bắt đầu"
+  },
+  "testimonials": {
+    "title": "Lựa chọn của hàng triệu người học",
+    "level": "Trình độ HSK",
+    "score": "Điểm"
+  },
+  "corporate": {
+    "title": "Được các công ty hàng đầu tin dùng",
+    "desc": "Cách học tiếng Trung thông minh bằng AI; chúng tôi cung cấp dịch vụ ngôn ngữ cho nhiều tập đoàn đa quốc gia nổi tiếng.",
+    "cta": "Tìm hiểu thêm"
+  },
+  "news": {
+    "title": "Tin tức"
+  },
+  "footer": {
+    "aboutHsk": "Về HSK",
+    "aboutTest": "Giới thiệu kỳ thi",
+    "testPlan": "Lịch thi",
+    "testRegulation": "Quy chế thi",
+    "mockTests": "Thi thử",
+    "product": "HanBridge",
+    "aboutUs": "Về chúng tôi",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản dịch vụ",
+    "refund": "Chính sách hoàn tiền",
+    "contact": "Liên hệ",
+    "download": "Tải ứng dụng",
+    "rights": "© {year} HanBridge. Bảo lưu mọi quyền.",
+    "tagline": "Nhịp cầu kết nối thế giới với tiếng Trung."
+  },
+  "common": {
+    "sampleBadge": "DỮ LIỆU MẪU"
+  }
+}

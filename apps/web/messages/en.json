@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "corporate": "Corporate Services",
+    "upgrade": "Upgrade",
+    "about": "About",
+    "login": "Login",
+    "register": "Register",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "THE SMARTER HSK PLATFORM",
+    "subtitle": "Big Data + Artificial Intelligence",
+    "cta": "Start Learning"
+  },
+  "learn": {
+    "title": "Learn whenever and wherever you want",
+    "courseTitle": "Course Design",
+    "courseDesc": "Designed by teachers with years of teaching experience, combined with 100 million data points.",
+    "aiTitle": "AI-powered",
+    "aiDesc": "Personalized practice that adapts to your pace, for effective and efficient learning."
+  },
+  "specialties": {
+    "title": "Our Specialties",
+    "testsTitle": "Real and mock tests",
+    "testsDesc": "Mock tests that take you into the real exam scenario.",
+    "vocabTitle": "Vocabulary Practice",
+    "vocabDesc": "Key vocabulary and high-frequency words.",
+    "lrwTitle": "Listening, Reading, Writing",
+    "lrwDesc": "Special training for each question type — master the test one by one."
+  },
+  "tutoring": {
+    "title": "HSK one-on-one tutoring",
+    "point1": "HSK key points summary",
+    "point2": "HSK study skills explanation",
+    "point3": "Analysis of previous years' tests",
+    "cta": "Download App →"
+  },
+  "levels": {
+    "title": "Choose your level",
+    "subtitle": "From beginner HSK 1 to the advanced HSK 7–9 band.",
+    "level": "HSK Level {n}",
+    "advanced": "HSK 7–9 (Advanced)",
+    "start": "Start"
+  },
+  "testimonials": {
+    "title": "The choice of millions of learners",
+    "level": "HSK Level",
+    "score": "Score"
+  },
+  "corporate": {
+    "title": "Trusted by leading companies",
+    "desc": "A smart, AI-powered way to learn Chinese; we provide language services for some of the world's most famous multinational companies.",
+    "cta": "Learn more"
+  },
+  "news": {
+    "title": "News"
+  },
+  "footer": {
+    "aboutHsk": "About HSK",
+    "aboutTest": "About Test",
+    "testPlan": "Test Plan",
+    "testRegulation": "Test Regulation",
+    "mockTests": "Mock Tests",
+    "product": "HanBridge",
+    "aboutUs": "About us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "refund": "Warranty & Return",
+    "contact": "Contact us",
+    "download": "Download App",
+    "rights": "© {year} HanBridge. All rights reserved.",
+    "tagline": "Bridging the world to the Chinese language."
+  },
+  "common": {
+    "sampleBadge": "SAMPLE DATA"
+  }
+}
