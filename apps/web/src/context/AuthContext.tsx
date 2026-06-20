@@ -9,9 +9,12 @@ import {
   type ReactNode
 } from "react";
 import { authApi, type AuthResult, type AuthUser } from "@/lib/api";
-
-const ACCESS_KEY = "hb_access";
-const REFRESH_KEY = "hb_refresh";
+import {
+  ACCESS_KEY,
+  REFRESH_KEY,
+  clearTokens,
+  setTokens
+} from "@/lib/tokens";
 
 interface AuthContextValue {
   user: AuthUser | null;
@@ -27,14 +30,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   const setSession = useCallback((result: AuthResult) => {
-    localStorage.setItem(ACCESS_KEY, result.access_token);
-    localStorage.setItem(REFRESH_KEY, result.refresh_token);
+    setTokens(result.access_token, result.refresh_token);
     setUser(result.user);
   }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem(ACCESS_KEY);
-    localStorage.removeItem(REFRESH_KEY);
+    clearTokens();
     setUser(null);
   }, []);
 

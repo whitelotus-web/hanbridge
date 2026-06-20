@@ -38,21 +38,56 @@ HSK1_LISTENING_SECTIONS: list[tuple[str, QuestionType, int]] = [
 ]
 
 
-def _sample_question(section: Section) -> Question:
-    q = Question(
-        section=section,
-        stem="[SAMPLE] 你好！— What does this greeting mean?",
-        explanation="[SAMPLE] 你好 (nǐ hǎo) is the most common way to say hello.",
-        translation="Hello!",
-        difficulty=1,
-        is_sample=True,
-    )
-    q.options = [
-        Option(label="A", content="Hello", is_correct=True),
-        Option(label="B", content="Goodbye", is_correct=False),
-        Option(label="C", content="Thank you", is_correct=False),
-    ]
-    return q
+# (stem, translation, explanation, [(label, content, is_correct), ...])
+SAMPLE_QUESTIONS: list[tuple[str, str, str, list[tuple[str, str, bool]]]] = [
+    (
+        "[SAMPLE] 你好！— What does this greeting mean?",
+        "Hello!",
+        "你好 (nǐ hǎo) is the most common way to say hello.",
+        [("A", "Hello", True), ("B", "Goodbye", False), ("C", "Thank you", False)],
+    ),
+    (
+        "[SAMPLE] 谢谢 — What does this word express?",
+        "Thank you",
+        "谢谢 (xièxie) means 'thank you'.",
+        [("A", "Sorry", False), ("B", "Thank you", True), ("C", "Hello", False)],
+    ),
+    (
+        "[SAMPLE] 再见 — When do you say this?",
+        "Goodbye",
+        "再见 (zàijiàn) literally means 'see you again' — goodbye.",
+        [
+            ("A", "When leaving", True),
+            ("B", "When eating", False),
+            ("C", "When sleeping", False),
+        ],
+    ),
+    (
+        "[SAMPLE] 一、二、三 — Which numbers are these?",
+        "One, two, three",
+        "一二三 (yī èr sān) are the numbers 1, 2, 3.",
+        [("A", "4, 5, 6", False), ("B", "1, 2, 3", True), ("C", "7, 8, 9", False)],
+    ),
+]
+
+
+def _sample_questions(section: Section) -> list[Question]:
+    questions: list[Question] = []
+    for stem, translation, explanation, options in SAMPLE_QUESTIONS:
+        q = Question(
+            section=section,
+            stem=stem,
+            explanation=f"[SAMPLE] {explanation}",
+            translation=translation,
+            difficulty=1,
+            is_sample=True,
+        )
+        q.options = [
+            Option(label=label, content=content, is_correct=correct)
+            for label, content, correct in options
+        ]
+        questions.append(q)
+    return questions
 
 
 def seed() -> None:
@@ -82,7 +117,7 @@ def seed() -> None:
                 skill=listening, title=title, question_type=qtype, order=order
             )
             db.add(section)
-            db.add(_sample_question(section))
+            db.add_all(_sample_questions(section))
 
         # Sample VIP plans (prices are placeholders).
         db.add_all(

@@ -119,5 +119,20 @@
   },
   "common": {
     "sampleBadge": "示例数据"
+  },
+  "practice": {
+    "loading": "加载中…",
+    "loadError": "无法加载内容，请重试。",
+    "levelNotFound": "该级别暂未开放。",
+    "comingSoon": "该技能的内容即将推出。",
+    "practice": "练习",
+    "score": "你的得分",
+    "correct": "正确",
+    "incorrect": "错误",
+    "translation": "翻译",
+    "backToLevel": "返回级别",
+    "retry": "再试一次",
+    "grading": "评分中…",
+    "submit": "提交答案"
   }
 }

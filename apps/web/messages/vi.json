@@ -119,5 +119,20 @@
   },
   "common": {
     "sampleBadge": "DỮ LIỆU MẪU"
+  },
+  "practice": {
+    "loading": "Đang tải…",
+    "loadError": "Không tải được nội dung. Vui lòng thử lại.",
+    "levelNotFound": "Cấp độ này chưa có sẵn.",
+    "comingSoon": "Nội dung cho kỹ năng này sắp ra mắt.",
+    "practice": "Luyện tập",
+    "score": "Điểm của bạn",
+    "correct": "Đúng",
+    "incorrect": "Sai",
+    "translation": "Bản dịch",
+    "backToLevel": "Quay lại cấp độ",
+    "retry": "Thử lại",
+    "grading": "Đang chấm…",
+    "submit": "Nộp bài"
   }
 }

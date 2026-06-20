@@ -70,6 +70,100 @@ export interface RegisterPayload {
   locale?: string;
 }
 
+export interface Option {
+  id: number;
+  label: string;
+  content: string;
+}
+
+export interface Question {
+  id: number;
+  stem: string;
+  audio_url: string | null;
+  image_url: string | null;
+  difficulty: number;
+  is_sample: boolean;
+  options: Option[];
+}
+
+export interface SectionSummary {
+  id: number;
+  title: string;
+  question_type: string;
+  order: number;
+}
+
+export interface Skill {
+  id: number;
+  type: string;
+  name: string;
+  order: number;
+  sections: SectionSummary[];
+}
+
+export interface LevelSummary {
+  id: number;
+  code: string;
+  name: string;
+  order: number;
+}
+
+export interface LevelDetail extends LevelSummary {
+  skills: Skill[];
+}
+
+export interface SectionQuestions {
+  id: number;
+  title: string;
+  question_type: string;
+  skill_name: string;
+  level_code: string;
+  questions: Question[];
+}
+
+export interface QuestionResult {
+  question_id: number;
+  is_correct: boolean;
+  correct_option_id: number | null;
+  explanation: string | null;
+  translation: string | null;
+}
+
+export interface GradeResult {
+  total: number;
+  correct: number;
+  results: QuestionResult[];
+}
+
+export interface ProgressRow {
+  section_id: number;
+  section_title: string;
+  answered: number;
+  correct: number;
+}
+
+export interface AnswerInput {
+  question_id: number;
+  chosen_option_id: number | null;
+}
+
+export const contentApi = {
+  levels: () => request<LevelSummary[]>("/levels"),
+  level: (code: string) => request<LevelDetail>(`/levels/${code}`),
+  section: (id: number) => request<SectionQuestions>(`/sections/${id}`)
+};
+
+export const practiceApi = {
+  grade: (answers: AnswerInput[], token?: string) =>
+    request<GradeResult>("/practice/grade", {
+      method: "POST",
+      body: JSON.stringify({ answers }),
+      token
+    }),
+
+  progress: (token: string) => request<ProgressRow[]>("/me/progress", { token })
+};
+
 export const authApi = {
   register: (payload: RegisterPayload) =>
     request<AuthResult>("/auth/register", {
