@@ -20,6 +20,7 @@ class SectionQuestionsOut(BaseModel):
 class AnswerIn(BaseModel):
     question_id: int
     chosen_option_id: int | None = None
+    text_answer: str | None = None
 
 
 class GradeIn(BaseModel):
@@ -29,7 +30,11 @@ class GradeIn(BaseModel):
 class QuestionResult(BaseModel):
     question_id: int
     is_correct: bool
-    correct_option_id: int | None
+    # False for self-assessed tasks (writing/speaking) that aren't auto-graded.
+    graded: bool = True
+    correct_option_id: int | None = None
+    # Accepted text answer for fill-in-the-blank questions.
+    correct_answer: str | None = None
     explanation: str | None = None
     translation: str | None = None
 

@@ -98,3 +98,72 @@ def test_grade_records_progress_for_member(
 
 def test_progress_requires_auth(client: TestClient) -> None:
     assert client.get("/api/v1/me/progress").status_code == 403
+
+
+@pytest.fixture
+def fill_section(db_session: Session) -> Section:
+    level = Level(code="TSTFILL", name="Test Fill", order=1)
+    skill = Skill(level=level, type=SkillType.reading, name="Reading", order=1)
+    sec = Section(
+        skill=skill,
+        title="Fill in the blank",
+        question_type=QuestionType.fill_blank,
+        order=1,
+    )
+    q = Question(section=sec, stem="我＿＿学生。", difficulty=1, is_sample=True)
+    q.options = [Option(label="A", content="是", is_correct=True)]
+    db_session.add(level)
+    db_session.flush()
+    return sec
+
+
+def test_grade_fill_blank_text(client: TestClient, fill_section: Section) -> None:
+    q = fill_section.questions[0]
+    ok = client.post(
+        "/api/v1/practice/grade",
+        json={"answers": [{"question_id": q.id, "text_answer": " 是 "}]},
+    ).json()
+    assert ok["correct"] == 1
+    assert ok["results"][0]["correct_answer"] == "是"
+
+    bad = client.post(
+        "/api/v1/practice/grade",
+        json={"answers": [{"question_id": q.id, "text_answer": "不"}]},
+    ).json()
+    assert bad["correct"] == 0
+
+
+@pytest.fixture
+def writing_section(db_session: Session) -> Section:
+    level = Level(code="TSTWRITE", name="Test Write", order=1)
+    skill = Skill(level=level, type=SkillType.writing, name="Writing", order=1)
+    sec = Section(
+        skill=skill,
+        title="Write a sentence",
+        question_type=QuestionType.writing_task,
+        order=1,
+    )
+    Question(
+        section=sec,
+        stem="Introduce yourself.",
+        explanation="Model answer: 我叫小明。",
+        difficulty=1,
+        is_sample=True,
+    )
+    db_session.add(level)
+    db_session.flush()
+    return sec
+
+
+def test_writing_task_is_self_assessed(
+    client: TestClient, writing_section: Section
+) -> None:
+    q = writing_section.questions[0]
+    res = client.post(
+        "/api/v1/practice/grade",
+        json={"answers": [{"question_id": q.id, "text_answer": "我叫A。"}]},
+    ).json()
+    # Self-assessed tasks are excluded from the score and flagged ungraded.
+    assert res["total"] == 0
+    assert res["results"][0]["graded"] is False
+    assert "Model answer" in res["results"][0]["explanation"]

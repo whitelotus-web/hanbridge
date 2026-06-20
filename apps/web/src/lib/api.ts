@@ -124,7 +124,9 @@ export interface SectionQuestions {
 export interface QuestionResult {
   question_id: number;
   is_correct: boolean;
+  graded: boolean;
   correct_option_id: number | null;
+  correct_answer: string | null;
   explanation: string | null;
   translation: string | null;
 }
@@ -144,7 +146,8 @@ export interface ProgressRow {
 
 export interface AnswerInput {
   question_id: number;
-  chosen_option_id: number | null;
+  chosen_option_id?: number | null;
+  text_answer?: string | null;
 }
 
 export const contentApi = {

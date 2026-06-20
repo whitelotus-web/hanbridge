@@ -11,14 +11,30 @@ import {
 } from "@/lib/api";
 import { getAccessToken } from "@/lib/tokens";
 
+const CHOICE_TYPES = [
+  "true_false",
+  "match_picture",
+  "match_dialogue",
+  "multiple_choice"
+];
+const TEXT_TYPES = ["fill_blank"];
+
+type Mode = "choice" | "text" | "essay";
+
+function modeOf(questionType: string): Mode {
+  if (CHOICE_TYPES.includes(questionType)) return "choice";
+  if (TEXT_TYPES.includes(questionType)) return "text";
+  return "essay";
+}
+
 export default function PracticeSession({ sectionId }: { sectionId: number }) {
   const t = useTranslations("practice");
   const [section, setSection] = useState<SectionQuestions | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // question_id -> chosen option_id
-  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [choiceAnswers, setChoiceAnswers] = useState<Record<number, number>>({});
+  const [textAnswers, setTextAnswers] = useState<Record<number, string>>({});
   const [result, setResult] = useState<GradeResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -55,18 +71,26 @@ export default function PracticeSession({ sectionId }: { sectionId: number }) {
     return <p className="py-10 text-center text-red-500">{loadError}</p>;
   }
 
+  const mode = modeOf(section.question_type);
+
   const allAnswered =
-    section.questions.length > 0 &&
-    section.questions.every((q) => answers[q.id] !== undefined);
+    mode === "essay" ||
+    (section.questions.length > 0 &&
+      section.questions.every((q) =>
+        mode === "choice"
+          ? choiceAnswers[q.id] !== undefined
+          : (textAnswers[q.id] ?? "").trim().length > 0
+      ));
 
   async function submit() {
     if (!section) return;
     setSubmitting(true);
     try {
-      const payload = section.questions.map((q) => ({
-        question_id: q.id,
-        chosen_option_id: answers[q.id] ?? null
-      }));
+      const payload = section.questions.map((q) =>
+        mode === "choice"
+          ? { question_id: q.id, chosen_option_id: choiceAnswers[q.id] ?? null }
+          : { question_id: q.id, text_answer: textAnswers[q.id] ?? "" }
+      );
       const res = await practiceApi.grade(payload, getAccessToken());
       setResult(res);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -76,7 +100,8 @@ export default function PracticeSession({ sectionId }: { sectionId: number }) {
   }
 
   function reset() {
-    setAnswers({});
+    setChoiceAnswers({});
+    setTextAnswers({});
     setResult(null);
   }
 
@@ -91,16 +116,21 @@ export default function PracticeSession({ sectionId }: { sectionId: number }) {
         </h1>
       </div>
 
-      {result && (
-        <div className="rounded-2xl bg-brand-gradient p-6 text-white shadow-lg">
-          <p className="text-sm uppercase tracking-wide opacity-80">
-            {t("score")}
-          </p>
-          <p className="mt-1 text-3xl font-extrabold">
-            {result.correct}/{result.total}
-          </p>
-        </div>
-      )}
+      {result &&
+        (result.total > 0 ? (
+          <div className="rounded-2xl bg-brand-gradient p-6 text-white shadow-lg">
+            <p className="text-sm uppercase tracking-wide opacity-80">
+              {t("score")}
+            </p>
+            <p className="mt-1 text-3xl font-extrabold">
+              {result.correct}/{result.total}
+            </p>
+          </div>
+        ) : (
+          <div className="rounded-2xl bg-slate-100 p-4 text-sm text-slate-600">
+            {t("selfAssessed")}
+          </div>
+        ))}
 
       <ol className="space-y-5">
         {section.questions.map((q, idx) => {
@@ -113,50 +143,86 @@ export default function PracticeSession({ sectionId }: { sectionId: number }) {
               <p className="font-semibold text-slate-900">
                 {idx + 1}. {q.stem}
               </p>
-              <div className="mt-4 space-y-2">
-                {q.options.map((opt) => {
-                  const selected = answers[q.id] === opt.id;
-                  const isCorrect = r && r.correct_option_id === opt.id;
-                  const isWrongChoice =
-                    r && selected && !r.is_correct && !isCorrect;
-                  return (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      disabled={!!result}
-                      onClick={() =>
-                        setAnswers((prev) => ({ ...prev, [q.id]: opt.id }))
-                      }
-                      className={[
-                        "flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition",
-                        isCorrect
-                          ? "border-green-400 bg-green-50 text-green-800"
-                          : isWrongChoice
-                            ? "border-red-300 bg-red-50 text-red-700"
-                            : selected
-                              ? "border-brand-500 bg-brand-50 text-brand-700"
-                              : "border-slate-200 text-slate-700 hover:border-brand-200"
-                      ].join(" ")}
-                    >
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-bold">
-                        {opt.label}
-                      </span>
-                      {opt.content}
-                    </button>
-                  );
-                })}
-              </div>
+
+              {mode === "choice" && (
+                <div className="mt-4 space-y-2">
+                  {q.options.map((opt) => {
+                    const selected = choiceAnswers[q.id] === opt.id;
+                    const isCorrect = r && r.correct_option_id === opt.id;
+                    const isWrongChoice =
+                      r && selected && !r.is_correct && !isCorrect;
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        disabled={!!result}
+                        onClick={() =>
+                          setChoiceAnswers((p) => ({ ...p, [q.id]: opt.id }))
+                        }
+                        className={[
+                          "flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition",
+                          isCorrect
+                            ? "border-green-400 bg-green-50 text-green-800"
+                            : isWrongChoice
+                              ? "border-red-300 bg-red-50 text-red-700"
+                              : selected
+                                ? "border-brand-500 bg-brand-50 text-brand-700"
+                                : "border-slate-200 text-slate-700 hover:border-brand-200"
+                        ].join(" ")}
+                      >
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-bold">
+                          {opt.label}
+                        </span>
+                        {opt.content}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
+              {mode === "text" && (
+                <input
+                  className="input mt-4"
+                  placeholder={t("yourAnswer")}
+                  disabled={!!result}
+                  value={textAnswers[q.id] ?? ""}
+                  onChange={(e) =>
+                    setTextAnswers((p) => ({ ...p, [q.id]: e.target.value }))
+                  }
+                />
+              )}
+
+              {mode === "essay" && (
+                <textarea
+                  className="input mt-4 min-h-24"
+                  placeholder={t("writeHere")}
+                  disabled={!!result}
+                  value={textAnswers[q.id] ?? ""}
+                  onChange={(e) =>
+                    setTextAnswers((p) => ({ ...p, [q.id]: e.target.value }))
+                  }
+                />
+              )}
+
               {r && (
                 <div className="mt-3 rounded-xl bg-slate-50 p-3 text-sm text-slate-600">
-                  <span
-                    className={
-                      r.is_correct
-                        ? "font-semibold text-green-700"
-                        : "font-semibold text-red-600"
-                    }
-                  >
-                    {r.is_correct ? t("correct") : t("incorrect")}
-                  </span>
+                  {r.graded && (
+                    <span
+                      className={
+                        r.is_correct
+                          ? "font-semibold text-green-700"
+                          : "font-semibold text-red-600"
+                      }
+                    >
+                      {r.is_correct ? t("correct") : t("incorrect")}
+                    </span>
+                  )}
+                  {r.correct_answer && !r.is_correct && (
+                    <p className="mt-1">
+                      <span className="font-medium">{t("acceptedAnswer")}: </span>
+                      {r.correct_answer}
+                    </p>
+                  )}
                   {r.translation && (
                     <p className="mt-1">
                       <span className="font-medium">{t("translation")}: </span>
