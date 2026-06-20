@@ -1,18 +1,13 @@
 from fastapi.testclient import TestClient
 
-from app.main import app
 
-client = TestClient(app)
-
-
-def test_health() -> None:
+def test_health(client: TestClient) -> None:
     res = client.get("/api/v1/health")
     assert res.status_code == 200
-    body = res.json()
-    assert body["status"] == "ok"
+    assert res.json()["status"] == "ok"
 
 
-def test_root() -> None:
+def test_root(client: TestClient) -> None:
     res = client.get("/")
     assert res.status_code == 200
     assert "name" in res.json()

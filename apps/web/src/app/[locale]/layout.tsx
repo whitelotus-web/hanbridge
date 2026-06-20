@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { locales } from "@/i18n/routing";
+import { AuthProvider } from "@/context/AuthContext";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className="font-sans">
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <AuthProvider>{children}</AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

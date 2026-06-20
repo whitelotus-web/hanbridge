@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
+import AuthNav from "./auth/AuthNav";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -35,18 +36,7 @@ export default function Navbar() {
           </ul>
           <div className="flex items-center gap-4">
             <LanguageSwitcher variant="light" />
-            <Link
-              href="/login"
-              className="text-sm font-medium text-white/90 transition hover:text-white"
-            >
-              {t("login")}
-            </Link>
-            <Link
-              href="/register"
-              className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-brand-600 transition hover:bg-white/90"
-            >
-              {t("register")}
-            </Link>
+            <AuthNav variant="light" />
           </div>
         </div>
 
@@ -84,14 +74,7 @@ export default function Navbar() {
           </ul>
           <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3">
             <LanguageSwitcher />
-            <div className="flex items-center gap-3">
-              <Link href="/login" className="text-sm font-medium text-slate-700">
-                {t("login")}
-              </Link>
-              <Link href="/register" className="btn-primary !px-4 !py-2">
-                {t("register")}
-              </Link>
-            </div>
+            <AuthNav onNavigate={() => setOpen(false)} />
           </div>
         </div>
       )}

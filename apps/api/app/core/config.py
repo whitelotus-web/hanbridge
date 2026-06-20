@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     )
     REDIS_URL: str = "redis://localhost:6379/0"
 
-    SECRET_KEY: str = "change-me-in-prod"
+    SECRET_KEY: str = "change-me-in-prod-use-a-32-byte-random-string"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     REFRESH_TOKEN_EXPIRE_DAYS: int = 14
 

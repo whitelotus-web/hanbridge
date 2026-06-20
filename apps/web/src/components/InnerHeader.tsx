@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
+import AuthNav from "./auth/AuthNav";
 
 export default function InnerHeader() {
   const t = useTranslations("nav");
@@ -30,12 +31,7 @@ export default function InnerHeader() {
             ))}
           </ul>
           <LanguageSwitcher />
-          <Link href="/login" className="text-sm font-medium text-slate-600">
-            {t("login")}
-          </Link>
-          <Link href="/register" className="btn-primary !px-5 !py-2">
-            {t("register")}
-          </Link>
+          <AuthNav variant="dark" />
         </div>
         <div className="md:hidden">
           <LanguageSwitcher />

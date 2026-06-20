@@ -5,7 +5,53 @@
     "about": "Giới thiệu",
     "login": "Đăng nhập",
     "register": "Đăng ký",
+    "logout": "Đăng xuất",
     "language": "Ngôn ngữ"
+  },
+  "auth": {
+    "password": "Mật khẩu",
+    "submitting": "Vui lòng đợi…",
+    "error": "Đã có lỗi xảy ra. Vui lòng thử lại.",
+    "login": {
+      "title": "Chào mừng trở lại",
+      "subtitle": "Đăng nhập để tiếp tục hành trình HSK của bạn.",
+      "identifier": "Email hoặc số điện thoại",
+      "forgot": "Quên mật khẩu?",
+      "submit": "Đăng nhập",
+      "invalid": "Email/số điện thoại hoặc mật khẩu không đúng.",
+      "noAccount": "Chưa có tài khoản?",
+      "registerLink": "Đăng ký"
+    },
+    "register": {
+      "title": "Tạo tài khoản",
+      "subtitle": "Bắt đầu luyện HSK 1–9 miễn phí.",
+      "name": "Tên hiển thị",
+      "email": "Email",
+      "submit": "Đăng ký",
+      "passwordHint": "Ít nhất 8 ký tự.",
+      "exists": "Email này đã được đăng ký.",
+      "invalid": "Vui lòng kiểm tra lại thông tin.",
+      "haveAccount": "Đã có tài khoản?",
+      "loginLink": "Đăng nhập"
+    },
+    "forgot": {
+      "title": "Đặt lại mật khẩu",
+      "subtitle": "Nhập email và chúng tôi sẽ gửi liên kết đặt lại.",
+      "submit": "Gửi liên kết đặt lại",
+      "sent": "Nếu tài khoản tồn tại, liên kết đặt lại đã được gửi.",
+      "devNote": "Chế độ phát triển — dùng liên kết này để đặt lại:",
+      "devLink": "Mở liên kết đặt lại",
+      "back": "Quay lại đăng nhập"
+    },
+    "reset": {
+      "title": "Đặt mật khẩu mới",
+      "subtitle": "Chọn một mật khẩu mạnh cho tài khoản của bạn.",
+      "newPassword": "Mật khẩu mới",
+      "submit": "Cập nhật mật khẩu",
+      "success": "Đã cập nhật mật khẩu. Đang chuyển đến đăng nhập…",
+      "invalid": "Liên kết đặt lại không hợp lệ hoặc đã hết hạn.",
+      "missing": "Không tìm thấy mã đặt lại. Hãy yêu cầu liên kết mới."
+    }
   },
   "hero": {
     "title": "NỀN TẢNG HSK THÔNG MINH HƠN",

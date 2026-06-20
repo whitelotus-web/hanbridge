@@ -5,7 +5,53 @@
     "about": "About",
     "login": "Login",
     "register": "Register",
+    "logout": "Log out",
     "language": "Language"
+  },
+  "auth": {
+    "password": "Password",
+    "submitting": "Please wait…",
+    "error": "Something went wrong. Please try again.",
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Log in to continue your HSK journey.",
+      "identifier": "Email or phone",
+      "forgot": "Forgot password?",
+      "submit": "Log in",
+      "invalid": "Invalid email/phone or password.",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Sign up"
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Start practicing HSK 1–9 for free.",
+      "name": "Display name",
+      "email": "Email",
+      "submit": "Sign up",
+      "passwordHint": "At least 8 characters.",
+      "exists": "An account with this email already exists.",
+      "invalid": "Please check your details and try again.",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Log in"
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email and we'll send you a reset link.",
+      "submit": "Send reset link",
+      "sent": "If that account exists, a reset link has been sent.",
+      "devNote": "Development mode — use this link to reset:",
+      "devLink": "Open reset link",
+      "back": "Back to login"
+    },
+    "reset": {
+      "title": "Set a new password",
+      "subtitle": "Choose a strong password for your account.",
+      "newPassword": "New password",
+      "submit": "Update password",
+      "success": "Password updated. Redirecting to login…",
+      "invalid": "This reset link is invalid or has expired.",
+      "missing": "No reset token found. Request a new link."
+    }
   },
   "hero": {
     "title": "THE SMARTER HSK PLATFORM",
