@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+import { buildMetadata, seoText } from "@/lib/seo";
 import { setRequestLocale } from "next-intl/server";
 import InnerHeader from "@/components/InnerHeader";
 import Footer from "@/components/Footer";
 import TutorChat from "@/components/ai/TutorChat";
+
+export function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string };
+}): Metadata {
+  const { title, description } = seoText(locale, "tutor");
+  return buildMetadata({ locale, path: "/tutor", title, description });
+}
 
 export default function TutorPage({
   params: { locale }

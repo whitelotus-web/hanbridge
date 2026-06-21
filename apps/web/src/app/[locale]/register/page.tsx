@@ -1,7 +1,23 @@
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import AuthShell from "@/components/AuthShell";
 import RegisterForm from "@/components/auth/RegisterForm";
+
+export function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string };
+}): Metadata {
+  return buildMetadata({
+    locale,
+    path: "/register",
+    title: "Create account",
+    description: "Create account — HanBridge.",
+    noindex: true
+  });
+}
 
 export default async function RegisterPage({
   params: { locale }

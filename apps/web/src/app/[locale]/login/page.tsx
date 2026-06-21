@@ -1,7 +1,23 @@
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import AuthShell from "@/components/AuthShell";
 import LoginForm from "@/components/auth/LoginForm";
+
+export function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string };
+}): Metadata {
+  return buildMetadata({
+    locale,
+    path: "/login",
+    title: "Sign in",
+    description: "Sign in — HanBridge.",
+    noindex: true
+  });
+}
 
 export default async function LoginPage({
   params: { locale }
