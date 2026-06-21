@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 from app.api.v1.endpoints import (
+    ai,
     auth,
     billing,
     dashboard,
@@ -18,3 +19,4 @@ api_router.include_router(practice.router)
 api_router.include_router(mock.router)
 api_router.include_router(dashboard.router)
 api_router.include_router(billing.router)
+api_router.include_router(ai.router)

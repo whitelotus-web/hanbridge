@@ -12,6 +12,7 @@ import {
 } from "@/lib/api";
 import { getAccessToken } from "@/lib/tokens";
 import VipGate from "@/components/billing/VipGate";
+import ExplainButton from "@/components/ai/ExplainButton";
 
 const CHOICE_TYPES = [
   "true_false",
@@ -238,6 +239,11 @@ export default function PracticeSession({ sectionId }: { sectionId: number }) {
                     </p>
                   )}
                   {r.explanation && <p className="mt-1">{r.explanation}</p>}
+                  <ExplainButton
+                    questionId={r.question_id}
+                    chosenOptionId={choiceAnswers[r.question_id] ?? null}
+                    textAnswer={textAnswers[r.question_id] ?? null}
+                  />
                 </div>
               )}
             </li>

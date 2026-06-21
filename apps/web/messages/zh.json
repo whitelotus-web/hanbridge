@@ -7,7 +7,8 @@
     "register": "注册",
     "logout": "退出登录",
     "dashboard": "我的面板",
-    "language": "语言"
+    "language": "语言",
+    "tutor": "AI 导师"
   },
   "auth": {
     "password": "密码",
@@ -150,7 +151,12 @@
     "reading": "阅读",
     "writing": "书写",
     "speaking": "口语",
-    "test": "考试"
+    "test": "考试",
+    "explainAi": "用 AI 解释",
+    "aiThinking": "思考中…",
+    "aiError": "重试",
+    "aiExplanation": "AI 解释",
+    "aiOffline": "离线模式"
   },
   "dashboard": {
     "loading": "加载中…",
@@ -178,5 +184,16 @@
     "gateTitle": "此内容仅限 VIP",
     "gateBody": "升级即可解锁此部分以及所有高级课程、模拟考试和 AI 功能。",
     "gateCta": "查看 VIP 套餐"
+  },
+  "tutor": {
+    "title": "AI 导师",
+    "subtitle": "随时询问任何关于中文语法、词汇或 HSK 的问题 — 全天候。",
+    "offlineNotice": "AI 导师处于离线模式（未配置 API 密钥），目前回复为占位内容。",
+    "empty": "开始对话 — 询问一个语法点、一个汉字或一个句子。",
+    "placeholder": "向导师提问…（Enter 发送，Shift+Enter 换行）",
+    "send": "发送",
+    "sending": "发送中…",
+    "loading": "加载中…",
+    "error": "抱歉，出错了，请重试。"
   }
 }

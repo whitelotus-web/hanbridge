@@ -3,6 +3,7 @@ from app.models.billing import Order, Plan
 from app.models.content import Level, Option, Question, Section, Skill
 from app.models.mock import MockAttempt, MockTest
 from app.models.practice import Attempt, Progress
+from app.models.tutor import TutorMessage
 from app.models.user import User
 
 __all__ = [
@@ -18,5 +19,6 @@ __all__ = [
     "Question",
     "Section",
     "Skill",
+    "TutorMessage",
     "User",
 ]

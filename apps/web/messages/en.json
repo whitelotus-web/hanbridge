@@ -7,7 +7,8 @@
     "register": "Register",
     "logout": "Log out",
     "dashboard": "Dashboard",
-    "language": "Language"
+    "language": "Language",
+    "tutor": "AI Tutor"
   },
   "auth": {
     "password": "Password",
@@ -150,7 +151,12 @@
     "reading": "Reading",
     "writing": "Writing",
     "speaking": "Speaking",
-    "test": "Test"
+    "test": "Test",
+    "explainAi": "Explain with AI",
+    "aiThinking": "Thinking…",
+    "aiError": "Try again",
+    "aiExplanation": "AI explanation",
+    "aiOffline": "offline mode"
   },
   "dashboard": {
     "loading": "Loading…",
@@ -178,5 +184,16 @@
     "gateTitle": "This content is VIP-only",
     "gateBody": "Upgrade to unlock this section and every other premium lesson, mock test and AI feature.",
     "gateCta": "View VIP plans"
+  },
+  "tutor": {
+    "title": "AI Tutor",
+    "subtitle": "Ask anything about Chinese grammar, vocabulary or HSK — 24/7.",
+    "offlineNotice": "AI tutor is in offline mode (no API key configured). Replies are placeholders for now.",
+    "empty": "Start the conversation — ask about a grammar point, a character, or a sentence.",
+    "placeholder": "Ask your tutor… (Enter to send, Shift+Enter for new line)",
+    "send": "Send",
+    "sending": "Sending…",
+    "loading": "Loading…",
+    "error": "Sorry, something went wrong. Please try again."
   }
 }
