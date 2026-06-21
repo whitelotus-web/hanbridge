@@ -4,14 +4,44 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { locales } from "@/i18n/routing";
 import { AuthProvider } from "@/context/AuthContext";
+import JsonLd from "@/components/JsonLd";
+import {
+  SITE_NAME,
+  SITE_URL,
+  languageAlternates,
+  localizedUrl,
+  organizationJsonLd,
+  seoText,
+  websiteJsonLd
+} from "@/lib/seo";
 import "../globals.css";
 
-export const metadata: Metadata = {
-  title: "HanBridge — The smarter HSK platform",
-  description:
-    "Learn Chinese and ace the HSK exam (levels 1–9) with AI-powered practice, mock tests, vocabulary SRS and speaking practice.",
-  metadataBase: new URL("https://hanbridge.app")
-};
+export function generateMetadata({
+  params: { locale }
+}: {
+  params: { locale: string };
+}): Metadata {
+  const { title, description } = seoText(locale, "home");
+  return {
+    metadataBase: new URL(SITE_URL),
+    applicationName: SITE_NAME,
+    title: { default: title, template: `%s · ${SITE_NAME}` },
+    description,
+    alternates: {
+      canonical: localizedUrl(locale, ""),
+      languages: languageAlternates("")
+    },
+    robots: { index: true, follow: true },
+    openGraph: {
+      type: "website",
+      siteName: SITE_NAME,
+      locale,
+      title,
+      description
+    },
+    twitter: { card: "summary_large_image" }
+  };
+}
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -34,6 +64,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className="font-sans">
+        <JsonLd data={[organizationJsonLd(), websiteJsonLd(locale)]} />
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>{children}</AuthProvider>
         </NextIntlClientProvider>

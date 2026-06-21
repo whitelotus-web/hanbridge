@@ -1,4 +1,6 @@
 packages:
   - "apps/web"
-  - "apps/mobile"
   - "packages/*"
+# apps/mobile is a standalone Expo project with its own dependency lockfile
+# (React Native tooling doesn't play well with pnpm's symlinked node_modules),
+# so it is intentionally NOT part of this pnpm workspace. See apps/mobile/README.md.
