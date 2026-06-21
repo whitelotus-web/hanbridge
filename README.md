@@ -6,6 +6,26 @@ It covers HSK levels **1–6** plus the new HSK 3.0 advanced band **7–9**, wit
 
 > Question-bank content currently ships as **sample/seed data** (flagged `is_sample` / tagged `SAMPLE`) to be replaced with real licensed content later.
 
+## 🚀 Live learning app (`apps/pwa`)
+
+A fully-functional, installable **Progressive Web App** ships in [`apps/pwa/`](apps/pwa) (also published to [`docs/`](docs) for GitHub Pages). It needs **no build step and no backend** — pure HTML/CSS/JS, works offline.
+
+Features:
+- **HSK 1–6 vocabulary decks** (accurate hanzi + tone-marked pinyin + English + Tiếng Việt)
+- **Flashcards** with flip animation and native **text-to-speech audio** (中文)
+- **Spaced repetition (SRS)** "study today" queue — progress saved on device
+- **Quiz modes**: hanzi→meaning, meaning→hanzi, listen→pick
+- **Timed mock test** with scoring, pass/fail and answer review
+- **Progress dashboard**: streak, XP, daily-goal ring, 28-day activity heatmap, per-level bars
+- **Dark mode** + **i18n** UI (EN / Tiếng Việt / 中文)
+- **PWA**: installable to home screen, offline-capable (service worker + manifest)
+
+### Deploy free on GitHub Pages
+1. Repo **Settings → Pages**
+2. **Source**: *Deploy from a branch*
+3. **Branch**: `devin/1781968435-scaffold`, **Folder**: `/docs` → **Save**
+4. Live in ~1 min at: `https://whitelotus-web.github.io/hanbridge/`
+
 ## Monorepo layout
 
 ```
