@@ -17,6 +17,7 @@ from app.models.article import Article
 from app.models.billing import Plan
 from app.models.content import Level, Option, Question, Section, Skill
 from app.models.enums import PlanInterval, QuestionType, SkillType
+from app.models.gamification import Badge
 from app.models.mock import MockTest
 
 # HSK 1-6 plus the advanced 7-9 band.
@@ -336,6 +337,68 @@ def seed() -> None:
                 published_at=datetime.now(UTC),
             )
         )
+
+        if db.scalar(select(Badge).limit(1)) is None:
+            db.add_all(
+                [
+                    Badge(
+                        code="first_steps",
+                        name="First Steps",
+                        description="Answer your first 10 questions.",
+                        icon="🌱",
+                        threshold_type="questions",
+                        threshold_value=10,
+                    ),
+                    Badge(
+                        code="century",
+                        name="Century",
+                        description="Answer 100 questions.",
+                        icon="💯",
+                        threshold_type="questions",
+                        threshold_value=100,
+                    ),
+                    Badge(
+                        code="streak_3",
+                        name="On a Roll",
+                        description="Keep a 3-day streak.",
+                        icon="🔥",
+                        threshold_type="streak",
+                        threshold_value=3,
+                    ),
+                    Badge(
+                        code="streak_7",
+                        name="Week Warrior",
+                        description="Keep a 7-day streak.",
+                        icon="⚡",
+                        threshold_type="streak",
+                        threshold_value=7,
+                    ),
+                    Badge(
+                        code="xp_500",
+                        name="Rising Star",
+                        description="Earn 500 XP.",
+                        icon="⭐",
+                        threshold_type="xp",
+                        threshold_value=500,
+                    ),
+                    Badge(
+                        code="xp_2000",
+                        name="HSK Scholar",
+                        description="Earn 2000 XP.",
+                        icon="🎓",
+                        threshold_type="xp",
+                        threshold_value=2000,
+                    ),
+                    Badge(
+                        code="mock_master",
+                        name="Mock Master",
+                        description="Pass 3 mock tests.",
+                        icon="🏆",
+                        threshold_type="mock_passed",
+                        threshold_value=3,
+                    ),
+                ]
+            )
 
         db.commit()
         print("Seeded SAMPLE data successfully.")

@@ -38,6 +38,9 @@ export default function AuthNav({
         <Link href="/tutor" className={loginClass} onClick={onNavigate}>
           {t("tutor")}
         </Link>
+        <Link href="/leaderboard" className={loginClass} onClick={onNavigate}>
+          {t("leaderboard")}
+        </Link>
         <Link href="/dashboard" className={loginClass} onClick={onNavigate}>
           {t("dashboard")}
         </Link>

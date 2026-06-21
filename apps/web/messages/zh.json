@@ -8,7 +8,8 @@
     "logout": "退出登录",
     "dashboard": "我的面板",
     "language": "语言",
-    "tutor": "AI 导师"
+    "tutor": "AI 导师",
+    "leaderboard": "排行榜"
   },
   "auth": {
     "password": "密码",
@@ -195,5 +196,18 @@
     "sending": "发送中…",
     "loading": "加载中…",
     "error": "抱歉，出错了，请重试。"
+  },
+  "gamification": {
+    "level": "等级",
+    "dayStreak": "天连续",
+    "totalXp": "总经验",
+    "badges": "徽章",
+    "noBadges": "还没有徽章 — 继续练习赢取第一枚！",
+    "leaderboard": "排行榜",
+    "leaderboardSubtitle": "按经验值排名的顶尖学习者。每天练习，向上攀登！",
+    "yourRank": "你的排名",
+    "learner": "学习者",
+    "loading": "加载中…",
+    "empty": "暂无排名，成为第一名吧！"
   }
 }

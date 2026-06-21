@@ -5,6 +5,7 @@ from app.api.v1.endpoints import (
     auth,
     billing,
     dashboard,
+    gamification,
     health,
     levels,
     mock,
@@ -20,3 +21,4 @@ api_router.include_router(mock.router)
 api_router.include_router(dashboard.router)
 api_router.include_router(billing.router)
 api_router.include_router(ai.router)
+api_router.include_router(gamification.router)

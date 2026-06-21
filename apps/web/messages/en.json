@@ -8,7 +8,8 @@
     "logout": "Log out",
     "dashboard": "Dashboard",
     "language": "Language",
-    "tutor": "AI Tutor"
+    "tutor": "AI Tutor",
+    "leaderboard": "Leaderboard"
   },
   "auth": {
     "password": "Password",
@@ -195,5 +196,18 @@
     "sending": "Sending…",
     "loading": "Loading…",
     "error": "Sorry, something went wrong. Please try again."
+  },
+  "gamification": {
+    "level": "Level",
+    "dayStreak": "day streak",
+    "totalXp": "total XP",
+    "badges": "Badges",
+    "noBadges": "No badges yet — keep practicing to earn your first!",
+    "leaderboard": "Leaderboard",
+    "leaderboardSubtitle": "Top learners by XP. Practice daily to climb the ranks!",
+    "yourRank": "Your rank",
+    "learner": "Learner",
+    "loading": "Loading…",
+    "empty": "No rankings yet. Be the first!"
   }
 }
