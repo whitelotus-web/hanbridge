@@ -121,6 +121,9 @@ def grade_answers(db: Session, answers: list[AnswerIn], user: User | None) -> Gr
             progress.answered += answered
             progress.correct += correct_n
         db.commit()
+        from app.services import gamification as gam
+
+        gam.award_for_practice(db, user, answered=graded_total, correct=correct_count)
 
     return GradeOut(total=graded_total, correct=correct_count, results=results)
 

@@ -161,6 +161,9 @@ def grade_mock(
         db.commit()
         db.refresh(attempt)
         attempt_id = attempt.id
+        from app.services import gamification as gam
+
+        gam.award_for_mock(db, user, passed=overall >= PASS_THRESHOLD)
 
     return MockResultOut(
         attempt_id=attempt_id,

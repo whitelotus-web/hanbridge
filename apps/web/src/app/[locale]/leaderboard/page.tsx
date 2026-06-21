@@ -1,10 +1,9 @@
 import { setRequestLocale } from "next-intl/server";
 import InnerHeader from "@/components/InnerHeader";
 import Footer from "@/components/Footer";
-import Dashboard from "@/components/practice/Dashboard";
-import GamificationPanel from "@/components/practice/GamificationPanel";
+import LeaderboardView from "@/components/practice/LeaderboardView";
 
-export default function DashboardPage({
+export default function LeaderboardPage({
   params: { locale }
 }: {
   params: { locale: string };
@@ -13,9 +12,8 @@ export default function DashboardPage({
   return (
     <>
       <InnerHeader />
-      <main className="container-page max-w-4xl space-y-6 py-12">
-        <GamificationPanel />
-        <Dashboard />
+      <main className="container-page max-w-4xl py-12">
+        <LeaderboardView />
       </main>
       <Footer />
     </>
