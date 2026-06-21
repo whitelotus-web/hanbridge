@@ -7,7 +7,8 @@
     "register": "Đăng ký",
     "logout": "Đăng xuất",
     "dashboard": "Bảng điều khiển",
-    "language": "Ngôn ngữ"
+    "language": "Ngôn ngữ",
+    "tutor": "Gia sư AI"
   },
   "auth": {
     "password": "Mật khẩu",
@@ -150,7 +151,12 @@
     "reading": "Đọc",
     "writing": "Viết",
     "speaking": "Nói",
-    "test": "Bài thi"
+    "test": "Bài thi",
+    "explainAi": "Giải thích bằng AI",
+    "aiThinking": "Đang nghĩ…",
+    "aiError": "Thử lại",
+    "aiExplanation": "Giải thích từ AI",
+    "aiOffline": "chế độ ngoại tuyến"
   },
   "dashboard": {
     "loading": "Đang tải…",
@@ -178,5 +184,16 @@
     "gateTitle": "Nội dung này chỉ dành cho VIP",
     "gateBody": "Nâng cấp để mở khoá phần này cùng tất cả bài học, đề thi thử và tính năng AI cao cấp.",
     "gateCta": "Xem các gói VIP"
+  },
+  "tutor": {
+    "title": "Gia sư AI",
+    "subtitle": "Hỏi bất cứ điều gì về ngữ pháp, từ vựng tiếng Trung hay HSK — 24/7.",
+    "offlineNotice": "Gia sư AI đang ở chế độ ngoại tuyến (chưa cấu hình API key). Câu trả lời hiện là mẫu tạm.",
+    "empty": "Bắt đầu trò chuyện — hỏi về một điểm ngữ pháp, một chữ Hán, hoặc một câu.",
+    "placeholder": "Hỏi gia sư… (Enter để gửi, Shift+Enter để xuống dòng)",
+    "send": "Gửi",
+    "sending": "Đang gửi…",
+    "loading": "Đang tải…",
+    "error": "Xin lỗi, đã có lỗi. Vui lòng thử lại."
   }
 }
