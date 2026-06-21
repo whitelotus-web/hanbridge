@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>HanBridge — Học tiếng Trung & luyện thi HSK</title>
+  <meta name="description" content="Học tiếng Trung và luyện thi HSK 1–6 với flashcard, lặp lại ngắt quãng (SRS), phát âm chuẩn, quiz và thi thử. Miễn phí, hoạt động offline, cài như app." />
+  <meta name="theme-color" content="#4f7cff" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="HanBridge" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <a class="brand" href="#/home" aria-label="HanBridge home">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <defs>
+          <linearGradient id="hb-grad" x1="0" y1="0" x2="48" y2="48">
+            <stop offset="0%" stop-color="#4f7cff" /><stop offset="100%" stop-color="#7b3fe4" />
+          </linearGradient>
+        </defs>
+        <path d="M6 34c8 0 12-12 18-12s10 12 18 12" stroke="url(#hb-grad)" stroke-width="4" stroke-linecap="round" fill="none" />
+        <path d="M8 34v6M40 34v6M24 22v18" stroke="url(#hb-grad)" stroke-width="4" stroke-linecap="round" />
+        <circle cx="24" cy="13" r="4" fill="url(#hb-grad)" />
+      </svg>
+      <span class="brand-name">Han<span class="grad-text">Bridge</span></span>
+    </a>
+    <div class="topbar-actions">
+      <button id="installBtn" class="icon-btn hidden" title="Cài đặt ứng dụng" aria-label="Install app">⬇️</button>
+      <select id="langSel" class="lang-sel" aria-label="Language">
+        <option value="vi">Tiếng Việt</option>
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+      </select>
+      <button id="themeBtn" class="icon-btn" title="Chế độ tối/sáng" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main id="app" class="app-main"><!-- views render here --></main>
+
+  <!-- Bottom navigation (mobile-first) -->
+  <nav class="bottomnav">
+    <a href="#/home" data-nav="home"><span class="bn-ico">🏠</span><span data-i18n="nav.home">Trang chủ</span></a>
+    <a href="#/study" data-nav="study"><span class="bn-ico">🧠</span><span data-i18n="nav.study">Học</span></a>
+    <a href="#/quiz" data-nav="quiz"><span class="bn-ico">✍️</span><span data-i18n="nav.quiz">Quiz</span></a>
+    <a href="#/stats" data-nav="stats"><span class="bn-ico">📊</span><span data-i18n="nav.stats">Tiến độ</span></a>
+  </nav>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="data.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
