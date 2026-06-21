@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "HanBridge",
+    "slug": "hanbridge",
+    "scheme": "hanbridge",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#4f7cff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.hanbridge.mobile"
+    },
+    "android": {
+      "package": "app.hanbridge.mobile"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": ["expo-router", "expo-secure-store"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

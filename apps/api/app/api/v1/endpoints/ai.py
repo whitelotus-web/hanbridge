@@ -20,9 +20,9 @@ router = APIRouter(prefix="/ai", tags=["ai"])
 
 
 @router.get("/status", response_model=dict[str, bool])
-def ai_status() -> dict[str, bool]:
+def ai_status(db: Session = Depends(get_db)) -> dict[str, bool]:
     """Whether a live Gemini key is configured (else dev fallback is used)."""
-    return {"ai_enabled": ai_service.ai_enabled()}
+    return {"ai_enabled": ai_service.ai_enabled(db)}
 
 
 @router.post("/explain", response_model=ExplainOut)

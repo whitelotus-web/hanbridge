@@ -14,7 +14,6 @@ import logging
 from sqlalchemy import select
 from sqlalchemy.orm import Session, joinedload, selectinload
 
-from app.core.config import settings
 from app.models.content import Option, Question
 from app.models.enums import QuestionType
 from app.models.practice import Progress
@@ -27,6 +26,7 @@ from app.schemas.ai import (
     TutorChatOut,
     TutorMessageOut,
 )
+from app.services import settings as settings_service
 
 logger = logging.getLogger(__name__)
 
@@ -34,23 +34,24 @@ logger = logging.getLogger(__name__)
 TEXT_TYPES = {QuestionType.fill_blank}
 SELF_ASSESSED_TYPES = {QuestionType.writing_task, QuestionType.speaking_task}
 
-_MODEL_NAME = "gemini-1.5-flash"
+_MODEL_NAME = "gemini-2.0-flash"
 # Keep the last N turns as context for follow-up questions.
 HISTORY_LIMIT = 12
 
 
-def ai_enabled() -> bool:
-    return bool(settings.GEMINI_API_KEY)
+def ai_enabled(db: Session) -> bool:
+    return bool(settings_service.get_gemini_key(db))
 
 
-def _generate(prompt: str, system: str | None = None) -> str | None:
+def _generate(db: Session, prompt: str, system: str | None = None) -> str | None:
     """Call Gemini; return None on any failure so callers can fall back."""
-    if not ai_enabled():
+    api_key = settings_service.get_gemini_key(db)
+    if not api_key:
         return None
     try:
         import google.generativeai as genai  # lazy: optional dependency
 
-        genai.configure(api_key=settings.GEMINI_API_KEY)
+        genai.configure(api_key=api_key)
         model = genai.GenerativeModel(
             _MODEL_NAME, system_instruction=system
         )
@@ -135,7 +136,7 @@ def explain_question(
         "Explain why the correct answer is right, what the learner may have "
         "confused, and one relevant grammar/vocabulary tip. Keep it under 120 words."
     )
-    ai_text = _generate(prompt, system=_tutor_system(locale))
+    ai_text = _generate(db, prompt, system=_tutor_system(locale))
 
     if ai_text:
         return ExplainOut(
@@ -182,7 +183,7 @@ def tutor_chat(db: Session, user: User, message: str, locale: str) -> TutorChatO
         (f"Conversation so far:\n{transcript}\n\n" if transcript else "")
         + f"user: {message}\nassistant:"
     )
-    reply = _generate(prompt, system=_tutor_system(locale))
+    reply = _generate(db, prompt, system=_tutor_system(locale))
     ai_generated = reply is not None
     if not reply:
         reply = (
@@ -272,7 +273,7 @@ def study_plan(db: Session, user: User, locale: str) -> StudyPlanOut:
         f"{[{'section': i.section_title, 'accuracy': i.accuracy} for i in items]}. "
         "Write a short, encouraging 2-3 sentence study recommendation."
     )
-    ai_summary = _generate(prompt, system=_tutor_system(locale))
+    ai_summary = _generate(db, prompt, system=_tutor_system(locale))
 
     return StudyPlanOut(
         summary=ai_summary or base_summary,

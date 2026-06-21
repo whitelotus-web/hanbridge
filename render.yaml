@@ -1,0 +1,31 @@
+# Render Blueprint for the HanBridge API (free tier).
+# Deploy: Render Dashboard → New → Blueprint → pick this repo.
+# Postgres: create a free Neon database and paste its URL into DATABASE_URL.
+# Docs: see DEPLOYMENT.md → "Quick free-tier deploy".
+services:
+  - type: web
+    name: hanbridge-api
+    runtime: python
+    rootDir: apps/api
+    plan: free
+    buildCommand: pip install -e .
+    startCommand: alembic upgrade head && python -m app.seed && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+      # Paste your Neon Postgres URL (postgresql+psycopg://...). Set in dashboard.
+      - key: DATABASE_URL
+        sync: false
+      # Auto-generated 32-byte secret for signing JWTs.
+      - key: SECRET_KEY
+        generateValue: true
+      # Comma-separated list of allowed web origins (your Vercel URL).
+      - key: BACKEND_CORS_ORIGINS
+        sync: false
+      # Public URL of the web app (used for payment redirects).
+      - key: FRONTEND_URL
+        sync: false
+      # Optional: set here OR from Admin → Settings after first deploy.
+      - key: GEMINI_API_KEY
+        sync: false

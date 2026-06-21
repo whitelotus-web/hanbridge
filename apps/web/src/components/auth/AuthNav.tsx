@@ -44,6 +44,11 @@ export default function AuthNav({
         <Link href="/dashboard" className={loginClass} onClick={onNavigate}>
           {t("dashboard")}
         </Link>
+        {user.is_staff && (
+          <Link href="/admin" className={loginClass} onClick={onNavigate}>
+            Admin
+          </Link>
+        )}
         <span className={nameClass}>{name}</span>
         <button
           type="button"
