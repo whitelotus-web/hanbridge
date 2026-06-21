@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "corporate": "企业服务",
+    "upgrade": "升级 VIP",
+    "about": "关于我们",
+    "login": "登录",
+    "register": "注册",
+    "logout": "退出登录",
+    "dashboard": "我的面板",
+    "language": "语言"
+  },
+  "auth": {
+    "password": "密码",
+    "submitting": "请稍候…",
+    "error": "出错了，请重试。",
+    "login": {
+      "title": "欢迎回来",
+      "subtitle": "登录以继续你的 HSK 学习之旅。",
+      "identifier": "邮箱或手机号",
+      "forgot": "忘记密码？",
+      "submit": "登录",
+      "invalid": "邮箱/手机号或密码错误。",
+      "noAccount": "还没有账号？",
+      "registerLink": "注册"
+    },
+    "register": {
+      "title": "创建账号",
+      "subtitle": "免费开始练习 HSK 1–9。",
+      "name": "昵称",
+      "email": "邮箱",
+      "submit": "注册",
+      "passwordHint": "至少 8 个字符。",
+      "exists": "该邮箱已被注册。",
+      "invalid": "请检查信息后重试。",
+      "haveAccount": "已有账号？",
+      "loginLink": "登录"
+    },
+    "forgot": {
+      "title": "重置密码",
+      "subtitle": "输入邮箱，我们将发送重置链接。",
+      "submit": "发送重置链接",
+      "sent": "如果该账号存在，重置链接已发送。",
+      "devNote": "开发模式 — 使用此链接重置：",
+      "devLink": "打开重置链接",
+      "back": "返回登录"
+    },
+    "reset": {
+      "title": "设置新密码",
+      "subtitle": "为你的账号选择一个安全的密码。",
+      "newPassword": "新密码",
+      "submit": "更新密码",
+      "success": "密码已更新，正在跳转到登录…",
+      "invalid": "此重置链接无效或已过期。",
+      "missing": "未找到重置令牌，请重新申请链接。"
+    }
+  },
+  "hero": {
+    "title": "更智能的 HSK 学习平台",
+    "subtitle": "大数据 + 人工智能",
+    "cta": "开始学习"
+  },
+  "learn": {
+    "title": "随时随地，想学就学",
+    "courseTitle": "课程设计",
+    "courseDesc": "由多年教学经验的老师设计，结合上亿条学习数据。",
+    "aiTitle": "AI 智能驱动",
+    "aiDesc": "根据你的节奏个性化练习，学习高效又轻松。"
+  },
+  "specialties": {
+    "title": "我们的特色",
+    "testsTitle": "真题与模拟考试",
+    "testsDesc": "模拟考试，带你进入真实考场。",
+    "vocabTitle": "词汇练习",
+    "vocabDesc": "重点词汇、高频词汇。",
+    "lrwTitle": "听力、阅读、书写",
+    "lrwDesc": "针对每种题型专项训练，逐一攻克。"
+  },
+  "tutoring": {
+    "title": "HSK 一对一辅导",
+    "point1": "HSK 考点总结",
+    "point2": "HSK 学习技巧讲解",
+    "point3": "历年真题解析",
+    "cta": "下载 App →"
+  },
+  "levels": {
+    "title": "选择你的级别",
+    "subtitle": "从入门 HSK 1 到高级 HSK 7–9。",
+    "level": "HSK {n} 级",
+    "advanced": "HSK 7–9（高级）",
+    "start": "开始"
+  },
+  "testimonials": {
+    "title": "数百万学习者的选择",
+    "level": "HSK 等级",
+    "score": "分数"
+  },
+  "corporate": {
+    "title": "众多知名企业的信赖之选",
+    "desc": "用 AI 技术提供更智能的中文学习方式；我们为多家世界知名跨国企业提供语言服务。",
+    "cta": "了解更多"
+  },
+  "news": {
+    "title": "新闻动态"
+  },
+  "footer": {
+    "aboutHsk": "关于 HSK",
+    "aboutTest": "考试介绍",
+    "testPlan": "考试安排",
+    "testRegulation": "考试规则",
+    "mockTests": "模拟考试",
+    "product": "HanBridge",
+    "aboutUs": "关于我们",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "refund": "退款政策",
+    "contact": "联系我们",
+    "download": "下载 App",
+    "rights": "© {year} HanBridge 版权所有。",
+    "tagline": "连接世界与中文。"
+  },
+  "common": {
+    "sampleBadge": "示例数据"
+  },
+  "practice": {
+    "loading": "加载中…",
+    "loadError": "无法加载内容，请重试。",
+    "levelNotFound": "该级别暂未开放。",
+    "comingSoon": "该技能的内容即将推出。",
+    "practice": "练习",
+    "score": "你的得分",
+    "correct": "正确",
+    "incorrect": "错误",
+    "translation": "翻译",
+    "acceptedAnswer": "参考答案",
+    "yourAnswer": "输入你的答案",
+    "writeHere": "在此写下你的答案…",
+    "selfAssessed": "自评任务 — 请将你的答案与下方的参考答案对照。",
+    "backToLevel": "返回级别",
+    "retry": "再试一次",
+    "grading": "评分中…",
+    "submit": "提交答案",
+    "mockTests": "模拟考试",
+    "questions": "题",
+    "minutes": "分钟",
+    "startTest": "开始考试",
+    "passed": "通过",
+    "notPassed": "未通过",
+    "correctCount": "正确",
+    "listening": "听力",
+    "reading": "阅读",
+    "writing": "书写",
+    "speaking": "口语",
+    "test": "考试"
+  },
+  "dashboard": {
+    "loading": "加载中…",
+    "title": "我的面板",
+    "greeting": "欢迎回来，{name}",
+    "answered": "已答题数",
+    "correct": "答对题数",
+    "accuracy": "正确率",
+    "progress": "各部分进度",
+    "noProgress": "开始练习后即可在此查看进度。",
+    "recentMocks": "最近的模拟考试",
+    "noMocks": "完成一次模拟考试以记录成绩。"
+  },
+  "billing": {
+    "title": "升级 VIP",
+    "subtitle": "解锁所有级别、模拟考试和 AI 功能。",
+    "payVia": "支付方式",
+    "choose": "选择套餐",
+    "processing": "处理中…",
+    "forDays": "{days} 天使用权",
+    "lifetime": "永久使用权",
+    "success": "您已成为 VIP，尽享全部内容！",
+    "alreadyVip": "您已拥有有效的 VIP 套餐。",
+    "error": "支付未能完成，请重试。",
+    "gateTitle": "此内容仅限 VIP",
+    "gateBody": "升级即可解锁此部分以及所有高级课程、模拟考试和 AI 功能。",
+    "gateCta": "查看 VIP 套餐"
+  }
+}

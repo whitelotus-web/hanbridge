@@ -1,0 +1,16 @@
+{
+  "name": "hanbridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HanBridge — HSK Chinese proficiency learning & exam-prep platform (web + mobile + api)",
+  "scripts": {
+    "dev:web": "pnpm --filter @hanbridge/web dev",
+    "build:web": "pnpm --filter @hanbridge/web build",
+    "lint:web": "pnpm --filter @hanbridge/web lint",
+    "typecheck:web": "pnpm --filter @hanbridge/web typecheck"
+  },
+  "packageManager": "pnpm@9.15.1",
+  "engines": {
+    "node": ">=20"
+  }
+}

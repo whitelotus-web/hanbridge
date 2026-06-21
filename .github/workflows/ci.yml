@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    name: Web (Next.js)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+        working-directory: .
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm build
+
+  api:
+    name: API (FastAPI)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/api
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: hanbridge
+          POSTGRES_PASSWORD: hanbridge
+          POSTGRES_DB: hanbridge
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U hanbridge"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgresql+psycopg://hanbridge:hanbridge@localhost:5432/hanbridge
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+        with:
+          version: "0.7.9"
+      - run: uv python install 3.12
+      - run: uv venv
+      - run: uv pip install -e ".[dev]"
+      - run: uv run ruff check .
+      - run: uv run mypy app
+      - run: uv run alembic upgrade head
+      - run: uv run pytest -q

@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "corporate": "Dịch vụ doanh nghiệp",
+    "upgrade": "Nâng cấp VIP",
+    "about": "Giới thiệu",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "logout": "Đăng xuất",
+    "dashboard": "Bảng điều khiển",
+    "language": "Ngôn ngữ"
+  },
+  "auth": {
+    "password": "Mật khẩu",
+    "submitting": "Vui lòng đợi…",
+    "error": "Đã có lỗi xảy ra. Vui lòng thử lại.",
+    "login": {
+      "title": "Chào mừng trở lại",
+      "subtitle": "Đăng nhập để tiếp tục hành trình HSK của bạn.",
+      "identifier": "Email hoặc số điện thoại",
+      "forgot": "Quên mật khẩu?",
+      "submit": "Đăng nhập",
+      "invalid": "Email/số điện thoại hoặc mật khẩu không đúng.",
+      "noAccount": "Chưa có tài khoản?",
+      "registerLink": "Đăng ký"
+    },
+    "register": {
+      "title": "Tạo tài khoản",
+      "subtitle": "Bắt đầu luyện HSK 1–9 miễn phí.",
+      "name": "Tên hiển thị",
+      "email": "Email",
+      "submit": "Đăng ký",
+      "passwordHint": "Ít nhất 8 ký tự.",
+      "exists": "Email này đã được đăng ký.",
+      "invalid": "Vui lòng kiểm tra lại thông tin.",
+      "haveAccount": "Đã có tài khoản?",
+      "loginLink": "Đăng nhập"
+    },
+    "forgot": {
+      "title": "Đặt lại mật khẩu",
+      "subtitle": "Nhập email và chúng tôi sẽ gửi liên kết đặt lại.",
+      "submit": "Gửi liên kết đặt lại",
+      "sent": "Nếu tài khoản tồn tại, liên kết đặt lại đã được gửi.",
+      "devNote": "Chế độ phát triển — dùng liên kết này để đặt lại:",
+      "devLink": "Mở liên kết đặt lại",
+      "back": "Quay lại đăng nhập"
+    },
+    "reset": {
+      "title": "Đặt mật khẩu mới",
+      "subtitle": "Chọn một mật khẩu mạnh cho tài khoản của bạn.",
+      "newPassword": "Mật khẩu mới",
+      "submit": "Cập nhật mật khẩu",
+      "success": "Đã cập nhật mật khẩu. Đang chuyển đến đăng nhập…",
+      "invalid": "Liên kết đặt lại không hợp lệ hoặc đã hết hạn.",
+      "missing": "Không tìm thấy mã đặt lại. Hãy yêu cầu liên kết mới."
+    }
+  },
+  "hero": {
+    "title": "NỀN TẢNG HSK THÔNG MINH HƠN",
+    "subtitle": "Dữ liệu lớn + Trí tuệ nhân tạo",
+    "cta": "Bắt đầu học"
+  },
+  "learn": {
+    "title": "Học mọi lúc, mọi nơi bạn muốn",
+    "courseTitle": "Thiết kế khóa học",
+    "courseDesc": "Được thiết kế bởi giáo viên nhiều năm kinh nghiệm, kết hợp 100 triệu dữ liệu học tập.",
+    "aiTitle": "Ứng dụng AI",
+    "aiDesc": "Luyện tập cá nhân hóa theo tốc độ của bạn, học hiệu quả và tiết kiệm thời gian."
+  },
+  "specialties": {
+    "title": "Thế mạnh của chúng tôi",
+    "testsTitle": "Đề thật & thi thử",
+    "testsDesc": "Bài thi thử mô phỏng đưa bạn vào phòng thi thật.",
+    "vocabTitle": "Luyện từ vựng",
+    "vocabDesc": "Từ vựng trọng tâm, từ tần suất cao.",
+    "lrwTitle": "Nghe, Đọc, Viết",
+    "lrwDesc": "Luyện chuyên sâu từng dạng câu hỏi — chinh phục từng phần."
+  },
+  "tutoring": {
+    "title": "Gia sư HSK 1 kèm 1",
+    "point1": "Tổng hợp trọng điểm HSK",
+    "point2": "Giải thích kỹ năng học HSK",
+    "point3": "Phân tích đề thi các năm trước",
+    "cta": "Tải App →"
+  },
+  "levels": {
+    "title": "Chọn trình độ của bạn",
+    "subtitle": "Từ HSK 1 cơ bản đến band HSK 7–9 nâng cao.",
+    "level": "HSK Cấp {n}",
+    "advanced": "HSK 7–9 (Nâng cao)",
+    "start": "Bắt đầu"
+  },
+  "testimonials": {
+    "title": "Lựa chọn của hàng triệu người học",
+    "level": "Trình độ HSK",
+    "score": "Điểm"
+  },
+  "corporate": {
+    "title": "Được các công ty hàng đầu tin dùng",
+    "desc": "Cách học tiếng Trung thông minh bằng AI; chúng tôi cung cấp dịch vụ ngôn ngữ cho nhiều tập đoàn đa quốc gia nổi tiếng.",
+    "cta": "Tìm hiểu thêm"
+  },
+  "news": {
+    "title": "Tin tức"
+  },
+  "footer": {
+    "aboutHsk": "Về HSK",
+    "aboutTest": "Giới thiệu kỳ thi",
+    "testPlan": "Lịch thi",
+    "testRegulation": "Quy chế thi",
+    "mockTests": "Thi thử",
+    "product": "HanBridge",
+    "aboutUs": "Về chúng tôi",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản dịch vụ",
+    "refund": "Chính sách hoàn tiền",
+    "contact": "Liên hệ",
+    "download": "Tải ứng dụng",
+    "rights": "© {year} HanBridge. Bảo lưu mọi quyền.",
+    "tagline": "Nhịp cầu kết nối thế giới với tiếng Trung."
+  },
+  "common": {
+    "sampleBadge": "DỮ LIỆU MẪU"
+  },
+  "practice": {
+    "loading": "Đang tải…",
+    "loadError": "Không tải được nội dung. Vui lòng thử lại.",
+    "levelNotFound": "Cấp độ này chưa có sẵn.",
+    "comingSoon": "Nội dung cho kỹ năng này sắp ra mắt.",
+    "practice": "Luyện tập",
+    "score": "Điểm của bạn",
+    "correct": "Đúng",
+    "incorrect": "Sai",
+    "translation": "Bản dịch",
+    "acceptedAnswer": "Đáp án đúng",
+    "yourAnswer": "Nhập câu trả lời của bạn",
+    "writeHere": "Viết câu trả lời của bạn ở đây…",
+    "selfAssessed": "Bài tự đánh giá — hãy so sánh câu trả lời của bạn với đáp án mẫu bên dưới.",
+    "backToLevel": "Quay lại cấp độ",
+    "retry": "Thử lại",
+    "grading": "Đang chấm…",
+    "submit": "Nộp bài",
+    "mockTests": "Đề thi thử",
+    "questions": "câu",
+    "minutes": "phút",
+    "startTest": "Bắt đầu thi",
+    "passed": "Đạt",
+    "notPassed": "Chưa đạt",
+    "correctCount": "câu đúng",
+    "listening": "Nghe",
+    "reading": "Đọc",
+    "writing": "Viết",
+    "speaking": "Nói",
+    "test": "Bài thi"
+  },
+  "dashboard": {
+    "loading": "Đang tải…",
+    "title": "Bảng điều khiển",
+    "greeting": "Chào mừng trở lại, {name}",
+    "answered": "Số câu đã làm",
+    "correct": "Số câu đúng",
+    "accuracy": "Độ chính xác",
+    "progress": "Tiến độ theo phần",
+    "noProgress": "Hãy bắt đầu luyện tập để xem tiến độ tại đây.",
+    "recentMocks": "Đề thi thử gần đây",
+    "noMocks": "Làm một đề thi thử để theo dõi điểm số."
+  },
+  "billing": {
+    "title": "Nâng cấp VIP",
+    "subtitle": "Mở khoá toàn bộ cấp độ, đề thi thử và tính năng AI.",
+    "payVia": "Thanh toán qua",
+    "choose": "Chọn gói",
+    "processing": "Đang xử lý…",
+    "forDays": "{days} ngày sử dụng",
+    "lifetime": "Sử dụng trọn đời",
+    "success": "Bạn đã là VIP. Tận hưởng toàn bộ nội dung!",
+    "alreadyVip": "Bạn đã có gói VIP đang hoạt động.",
+    "error": "Không thể hoàn tất thanh toán. Vui lòng thử lại.",
+    "gateTitle": "Nội dung này chỉ dành cho VIP",
+    "gateBody": "Nâng cấp để mở khoá phần này cùng tất cả bài học, đề thi thử và tính năng AI cao cấp.",
+    "gateCta": "Xem các gói VIP"
+  }
+}

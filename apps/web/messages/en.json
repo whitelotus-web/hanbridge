@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "corporate": "Corporate Services",
+    "upgrade": "Upgrade",
+    "about": "About",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Log out",
+    "dashboard": "Dashboard",
+    "language": "Language"
+  },
+  "auth": {
+    "password": "Password",
+    "submitting": "Please wait…",
+    "error": "Something went wrong. Please try again.",
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Log in to continue your HSK journey.",
+      "identifier": "Email or phone",
+      "forgot": "Forgot password?",
+      "submit": "Log in",
+      "invalid": "Invalid email/phone or password.",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Sign up"
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Start practicing HSK 1–9 for free.",
+      "name": "Display name",
+      "email": "Email",
+      "submit": "Sign up",
+      "passwordHint": "At least 8 characters.",
+      "exists": "An account with this email already exists.",
+      "invalid": "Please check your details and try again.",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Log in"
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email and we'll send you a reset link.",
+      "submit": "Send reset link",
+      "sent": "If that account exists, a reset link has been sent.",
+      "devNote": "Development mode — use this link to reset:",
+      "devLink": "Open reset link",
+      "back": "Back to login"
+    },
+    "reset": {
+      "title": "Set a new password",
+      "subtitle": "Choose a strong password for your account.",
+      "newPassword": "New password",
+      "submit": "Update password",
+      "success": "Password updated. Redirecting to login…",
+      "invalid": "This reset link is invalid or has expired.",
+      "missing": "No reset token found. Request a new link."
+    }
+  },
+  "hero": {
+    "title": "THE SMARTER HSK PLATFORM",
+    "subtitle": "Big Data + Artificial Intelligence",
+    "cta": "Start Learning"
+  },
+  "learn": {
+    "title": "Learn whenever and wherever you want",
+    "courseTitle": "Course Design",
+    "courseDesc": "Designed by teachers with years of teaching experience, combined with 100 million data points.",
+    "aiTitle": "AI-powered",
+    "aiDesc": "Personalized practice that adapts to your pace, for effective and efficient learning."
+  },
+  "specialties": {
+    "title": "Our Specialties",
+    "testsTitle": "Real and mock tests",
+    "testsDesc": "Mock tests that take you into the real exam scenario.",
+    "vocabTitle": "Vocabulary Practice",
+    "vocabDesc": "Key vocabulary and high-frequency words.",
+    "lrwTitle": "Listening, Reading, Writing",
+    "lrwDesc": "Special training for each question type — master the test one by one."
+  },
+  "tutoring": {
+    "title": "HSK one-on-one tutoring",
+    "point1": "HSK key points summary",
+    "point2": "HSK study skills explanation",
+    "point3": "Analysis of previous years' tests",
+    "cta": "Download App →"
+  },
+  "levels": {
+    "title": "Choose your level",
+    "subtitle": "From beginner HSK 1 to the advanced HSK 7–9 band.",
+    "level": "HSK Level {n}",
+    "advanced": "HSK 7–9 (Advanced)",
+    "start": "Start"
+  },
+  "testimonials": {
+    "title": "The choice of millions of learners",
+    "level": "HSK Level",
+    "score": "Score"
+  },
+  "corporate": {
+    "title": "Trusted by leading companies",
+    "desc": "A smart, AI-powered way to learn Chinese; we provide language services for some of the world's most famous multinational companies.",
+    "cta": "Learn more"
+  },
+  "news": {
+    "title": "News"
+  },
+  "footer": {
+    "aboutHsk": "About HSK",
+    "aboutTest": "About Test",
+    "testPlan": "Test Plan",
+    "testRegulation": "Test Regulation",
+    "mockTests": "Mock Tests",
+    "product": "HanBridge",
+    "aboutUs": "About us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "refund": "Warranty & Return",
+    "contact": "Contact us",
+    "download": "Download App",
+    "rights": "© {year} HanBridge. All rights reserved.",
+    "tagline": "Bridging the world to the Chinese language."
+  },
+  "common": {
+    "sampleBadge": "SAMPLE DATA"
+  },
+  "practice": {
+    "loading": "Loading…",
+    "loadError": "Couldn't load this content. Please try again.",
+    "levelNotFound": "This level isn't available yet.",
+    "comingSoon": "Content for this skill is coming soon.",
+    "practice": "Practice",
+    "score": "Your score",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "translation": "Translation",
+    "acceptedAnswer": "Accepted answer",
+    "yourAnswer": "Type your answer",
+    "writeHere": "Write your answer here…",
+    "selfAssessed": "Self-assessed task — compare your answer with the model answer below.",
+    "backToLevel": "Back to level",
+    "retry": "Try again",
+    "grading": "Grading…",
+    "submit": "Submit answers",
+    "mockTests": "Mock tests",
+    "questions": "questions",
+    "minutes": "min",
+    "startTest": "Start test",
+    "passed": "Passed",
+    "notPassed": "Not passed",
+    "correctCount": "correct",
+    "listening": "Listening",
+    "reading": "Reading",
+    "writing": "Writing",
+    "speaking": "Speaking",
+    "test": "Test"
+  },
+  "dashboard": {
+    "loading": "Loading…",
+    "title": "Dashboard",
+    "greeting": "Welcome back, {name}",
+    "answered": "Questions answered",
+    "correct": "Correct answers",
+    "accuracy": "Accuracy",
+    "progress": "Progress by section",
+    "noProgress": "Start practicing to see your progress here.",
+    "recentMocks": "Recent mock tests",
+    "noMocks": "Take a mock test to track your scores."
+  },
+  "billing": {
+    "title": "Upgrade to VIP",
+    "subtitle": "Unlock every level, mock test and AI feature.",
+    "payVia": "Pay via",
+    "choose": "Choose plan",
+    "processing": "Processing…",
+    "forDays": "{days} days of access",
+    "lifetime": "Lifetime access",
+    "success": "You are now VIP. Enjoy full access!",
+    "alreadyVip": "You already have an active VIP plan.",
+    "error": "Payment could not be completed. Please try again.",
+    "gateTitle": "This content is VIP-only",
+    "gateBody": "Upgrade to unlock this section and every other premium lesson, mock test and AI feature.",
+    "gateCta": "View VIP plans"
+  }
+}
